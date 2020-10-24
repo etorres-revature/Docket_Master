@@ -16,6 +16,7 @@ router.get("/api/attorneys", (req, res) => {
 //@desc         Get attorney
 //@access       Public
 router.get("/api/attorneys/:id", (req, res) => {
+  const { id } = req.params;
   db.Attorney.findOne({
     where: {
       id,
@@ -37,7 +38,8 @@ router.post("api/attorneys", (req, res) => {
 //@route        PUT /api/attorneys/:id
 //@desc         Update attorney
 //@access       Public
-router.put("api/cases/:id", (req, res) => {
+router.put("api/attorneys/:id", (req, res) => {
+  const { id } = req.params;
   db.Attorney.update({
     where: {
       id,
@@ -51,6 +53,7 @@ router.put("api/cases/:id", (req, res) => {
 //@desc         Delete attorney
 //@access       Public
 router.delete("api/attorneys/:id", (req, res) => {
+  const { id } = req.params;
   db.Attorney.destroy({
     where: {
       id,

@@ -16,6 +16,7 @@ router.get("/api/divisions", (req, res) => {
 //@desc         Get division
 //@access       Public
 router.get("/api/divisions/:id", (req, res) => {
+  const { id } = req.params;
   db.Division.findOne({
     where: {
       id,
@@ -38,6 +39,7 @@ router.post("api/divisions", (req, res) => {
 //@desc         Update division
 //@access       Public
 router.put("api/divisions/:id", (req, res) => {
+  const { id } = req.params;
   db.Division.update({
     where: {
       id,
@@ -51,6 +53,7 @@ router.put("api/divisions/:id", (req, res) => {
 //@desc         Delete division
 //@access       Public
 router.delete("api/divisions/:id", (req, res) => {
+  const { id } = req.params;
   db.Division.destroy({
     where: {
       id,

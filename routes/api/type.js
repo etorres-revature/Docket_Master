@@ -16,6 +16,7 @@ router.get("/api/types", (req, res) => {
 //@desc         Get case type
 //@access       Public
 router.get("/api/types/:id", (req, res) => {
+  const { id } = req.params;
   db.Type.findOne({
     where: {
       id,
@@ -37,7 +38,8 @@ router.post("api/types", (req, res) => {
 //@route        PUT /api/types/:id
 //@desc         Update type
 //@access       Public
-router.put("api/type/:id", (req, res) => {
+router.put("api/types/:id", (req, res) => {
+  const { id } = req.params;
   db.Type.update({
     where: {
       id,
@@ -51,6 +53,7 @@ router.put("api/type/:id", (req, res) => {
 //@desc         Delete type
 //@access       Public
 router.delete("api/types/:id", (req, res) => {
+  const { id } = req.params;
   db.Type.destroy({
     where: {
       id,

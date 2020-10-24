@@ -16,6 +16,7 @@ router.get("/api/litigants", (req, res) => {
 //@desc         Get litigant
 //@access       Public
 router.get("/api/litigants/:id", (req, res) => {
+  const { id } = req.params;
   db.Litigant.findOne({
     where: {
       id,
@@ -38,6 +39,7 @@ router.post("api/litigants", (req, res) => {
 //@desc         Update litigant
 //@access       Public
 router.put("api/litigants/:id", (req, res) => {
+  const { id } = req.params;
   db.Litigant.update({
     where: {
       id,
@@ -51,6 +53,7 @@ router.put("api/litigants/:id", (req, res) => {
 //@desc         Delete litigant
 //@access       Public
 router.delete("api/litigants/:id", (req, res) => {
+  const { id } = req.params;
   db.Litigant.destroy({
     where: {
       id,

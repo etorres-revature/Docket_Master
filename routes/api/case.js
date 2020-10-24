@@ -6,16 +6,17 @@ const db = require("../../models");
 //@route        GET /api/cases
 //@desc         Get all cases
 //@access       Public
-router.get("/api/types", (req, res) => {
+router.get("/api/cases", (req, res) => {
   db.Case.finAll({}).then((cases) => {
     res.json(cases);
   });
 });
 
 //@route        GET /api/cases/:id
-//@desc         Get case 
+//@desc         Get case
 //@access       Public
 router.get("/api/cases/:id", (req, res) => {
+  const { id } = req.params;
   db.Case.findOne({
     where: {
       id,
@@ -26,7 +27,7 @@ router.get("/api/cases/:id", (req, res) => {
 });
 
 //@route        POST /api/cases
-//@desc         Create new case 
+//@desc         Create new case
 //@access       Public
 router.post("api/cases", (req, res) => {
   db.Case.create(res.body).then((newCase) => {
@@ -38,6 +39,7 @@ router.post("api/cases", (req, res) => {
 //@desc         Update case
 //@access       Public
 router.put("api/cases/:id", (req, res) => {
+  const { id } = req.params;
   db.Case.update({
     where: {
       id,
@@ -51,6 +53,7 @@ router.put("api/cases/:id", (req, res) => {
 //@desc         Delete case
 //@access       Public
 router.delete("api/cases/:id", (req, res) => {
+  const { id } = req.params;
   db.Case.destroy({
     where: {
       id,
