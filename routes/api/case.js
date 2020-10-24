@@ -3,64 +3,59 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
-
-//@route        GET / 
+//@route        GET /api/cases
 //@desc         Get all cases
-//@access        Public
-router.get("/", (req, res) => {
-    db.Case.finAll({}).then( cases => {
-        res.json(cases)
-    }).catch(err => {
-        res.status(500).json({ msg: err.message});
-    })
-})
-
-//@route        GET /api/cases/:id 
-//@desc         Get case
 //@access       Public
-router.get("api/cases:id", (req, res) => {
-    db.Case.findOne({
-        where: {
-            id
-        }
-    }).then( case => {
-        res.json(case);
-    });
+router.get("/api/types", (req, res) => {
+  db.Case.finAll({}).then((cases) => {
+    res.json(cases);
+  });
 });
-        
+
+//@route        GET /api/cases/:id
+//@desc         Get case 
+//@access       Public
+router.get("/api/cases/:id", (req, res) => {
+  db.Case.findOne({
+    where: {
+      id,
+    },
+  }).then((oneCase) => {
+    res.json(oneCase);
+  });
+});
 
 //@route        POST /api/cases
-//@desc         Create new case
+//@desc         Create new case 
 //@access       Public
 router.post("api/cases", (req, res) => {
-db.Case.create(res.body).then(newCase => {
-    res.status(201).json(newCase)
-})
-})
+  db.Case.create(res.body).then((newCase) => {
+    res.status(201).json(newCase);
+  });
+});
 
 //@route        PUT /api/cases/:id
 //@desc         Update case
 //@access       Public
-router.put("api/cases/:id", (req,res) => {
-    db.Case.update({
-        where: {
-            id: req.body.id
-        }
-    }).then(case => {
-        res.json(case);
-    })
-})
+router.put("api/cases/:id", (req, res) => {
+  db.Case.update({
+    where: {
+      id,
+    },
+  }).then((updCase) => {
+    res.json(updCase);
+  });
+});
 
-
-//@route        DELETE /api/cases
+//@route        DELETE /api/cases/:id
 //@desc         Delete case
 //@access       Public
 router.delete("api/cases/:id", (req, res) => {
-    db.Case.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then( case => {
-        res.json(case);
-    })
-})
+  db.Case.destroy({
+    where: {
+      id,
+    },
+  }).then((delCase) => {
+    res.json(delCase);
+  });
+});

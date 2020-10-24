@@ -50,7 +50,7 @@ router.put("api/cases/:id", (req, res) => {
 //@route        DELETE /api/attorneys/:id
 //@desc         Delete attorney
 //@access       Public
-router.delete("api/divisions/:id", (req, res) => {
+router.delete("api/attorneys/:id", (req, res) => {
   db.Attorney.destroy({
     where: {
       id,

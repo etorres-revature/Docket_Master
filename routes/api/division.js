@@ -5,7 +5,7 @@ const db = require("../../models");
 
 //@route        GET /api/divisions
 //@desc         Get all divisions
-//@access        Public
+//@access       Public
 router.get("/api/divisions", (req, res) => {
   db.Division.finAll({}).then((divisions) => {
     res.json(divisions);
@@ -26,7 +26,7 @@ router.get("/api/divisions/:id", (req, res) => {
 });
 
 //@route        POST /api/divisions
-//@desc         Create new case
+//@desc         Create new division
 //@access       Public
 router.post("api/divisions", (req, res) => {
   db.Division.create(res.body).then((newDiv) => {
@@ -37,7 +37,7 @@ router.post("api/divisions", (req, res) => {
 //@route        PUT /api/divisions/:id
 //@desc         Update division
 //@access       Public
-router.put("api/cases/:id", (req, res) => {
+router.put("api/divisions/:id", (req, res) => {
   db.Division.update({
     where: {
       id,

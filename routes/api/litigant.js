@@ -15,7 +15,7 @@ router.get("/api/litigants", (req, res) => {
 //@route        GET /api/litigants/:id
 //@desc         Get litigant
 //@access       Public
-router.get("/api/attorneys/:id", (req, res) => {
+router.get("/api/litigants/:id", (req, res) => {
   db.Litigant.findOne({
     where: {
       id,
@@ -28,7 +28,7 @@ router.get("/api/attorneys/:id", (req, res) => {
 //@route        POST /api/litigants
 //@desc         Create new litigant
 //@access       Public
-router.post("api/litigant", (req, res) => {
+router.post("api/litigants", (req, res) => {
   db.Litigant.create(res.body).then((newLitigant) => {
     res.status(201).json(newLitigant);
   });
