@@ -4,8 +4,8 @@ const router = express.Router();
 const db = require("../../models");
 
 //@route        GET /api/attorneys
-//@desc         Get all attorney
-//@access        Public
+//@desc         Get all attorneys
+//@access       Public
 router.get("/api/attorneys", (req, res) => {
   db.Attorney.finAll({}).then((attys) => {
     res.json(attys);
@@ -29,7 +29,7 @@ router.get("/api/attorneys/:id", (req, res) => {
 //@desc         Create new attorney
 //@access       Public
 router.post("api/attorneys", (req, res) => {
-  db.Division.create(res.body).then((newAtty) => {
+  db.Attorney.create(res.body).then((newAtty) => {
     res.status(201).json(newAtty);
   });
 });
