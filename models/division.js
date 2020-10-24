@@ -34,5 +34,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         }
     });
+
+
+
+    Division.associate = (db) => {
+        Division.hasOne(db.Case, {
+            foreignKey: "division"
+        });
+    };
     return Division;
 };

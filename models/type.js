@@ -8,5 +8,12 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     });
+
+
+    Type.associate = (db) => {
+        Type.hasOne(db.Case, {
+            foreignKey: "type"
+        });
+    };
     return Type;
 };

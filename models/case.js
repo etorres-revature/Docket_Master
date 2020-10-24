@@ -1,3 +1,5 @@
+const division = require("./division");
+
 module.exports = (sequelize, DataTypes) => {
     const Case = sequelize.define("Case", {
         caseNumber: {
@@ -69,6 +71,24 @@ module.exports = (sequelize, DataTypes) => {
             through: "case_profiles",
             foreignKey: "id"
 
+        });
+    };
+
+    Case.associate = (db) => {
+        Case.belongsTo(db.Division, {
+            foreignKey: "id"
+        });
+    };
+
+    Case.associate = (db) => {
+        Case.hasMany(db.Litigant, {
+            foreignKey: "litID"
+        });
+    };
+
+    Case.associate = (db) => {
+        Case.belongsTo(db.Type, {
+            foreignKey: "id"
         });
     };
 

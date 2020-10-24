@@ -1,20 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
     const Litigant = sequelize.define("Litigant", {
-        LitID: {
+        litID: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        LitFName: {
+        litFName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        LitLName: {
+        litLName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -27,5 +27,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         }
     });
+
+
+    Litigant.associate = (db) => {
+        Litigant.belongsTo(db.Case, {
+            foreignKey: "caseNumber"
+        });
+    };
     return Litigant;
 };
