@@ -107,4 +107,4 @@ dist
 .DS_Store
 
 # db config files
-/config/config.js
+/config/config.json
