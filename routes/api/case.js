@@ -52,7 +52,7 @@ router.put("api/cases/:id", (req,res) => {
 })
 
 
-//@route        Delete /api/cases
+//@route        DELETE /api/cases
 //@desc         Delete case
 //@access       Public
 router.delete("api/cases/:id", (req, res) => {
