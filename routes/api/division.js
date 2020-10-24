@@ -13,7 +13,7 @@ router.get("/api/divisions", (req, res) => {
     })
 })
 
-//@route        GET /api/cases/:id 
+//@route        GET /api/divisions/:id 
 //@desc         Get division
 //@access       Public
 router.get("/api/divisions/:id", (req, res) => {
