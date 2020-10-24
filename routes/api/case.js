@@ -1,7 +1,7 @@
 const { decodeBase64 } = require("bcryptjs");
 const express = require("express");
 const router = express.Router();
-const case = require("");
+const db = require("../../models");
 
 
 //@route        GET / 
@@ -10,21 +10,24 @@ const case = require("");
 router.get("/", (req, res) => {
     db.Case.finAll({}).then( cases => {
         res.json(cases)
+    }).catch(err => {
+        res.status(500).json({ msg: err.message});
     })
 })
 
 //@route        GET /api/cases/:id 
 //@desc         Get case
 //@access       Public
-router.get("/api/cases/:id", (req, res) => {
+router.get("api/cases:id", (req, res) => {
     db.Case.findOne({
         where: {
-            id req.params.id
+            id
         }
     }).then( case => {
         res.json(case);
-    })
- })
+    });
+});
+        
 
 //@route        POST /api/cases
 //@desc         Create new case
@@ -36,7 +39,7 @@ db.Case.create(res.body).then(newCase => {
 })
 
 //@route        PUT /api/cases/:id
-//@desc         Update cae
+//@desc         Update case
 //@access       Public
 router.put("api/cases/:id", (req,res) => {
     db.Case.update({
@@ -49,8 +52,8 @@ router.put("api/cases/:id", (req,res) => {
 })
 
 
-//@route        POST /api/cases
-//@desc         create new case
+//@route        Delete /api/cases
+//@desc         Delete case
 //@access       Public
 router.delete("api/cases/:id", (req, res) => {
     db.Case.destroy({
