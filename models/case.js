@@ -62,5 +62,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         }
     });
+
+
+    Case.associate = (db) => {
+        Case.belongsToMany(db.Attorney, {
+            through: "case_profiles",
+            foreignKey: "id"
+
+        });
+    };
+
     return Case;
 };

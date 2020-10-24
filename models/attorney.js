@@ -20,5 +20,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         }
     });
+
+
+    Attorney.associate = (db) => {
+        Attorney.belongsToMany(db.Case, {
+            through: "case_profiles",
+            foreignKey: "id"
+        });
+    };
+
     return Attorney;
 };
