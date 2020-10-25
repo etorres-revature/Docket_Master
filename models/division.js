@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const Division = sequelize.define("Division", {
-        divisionID: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+        // divisionID: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         len: [1]
+        //     }
+        // },
         division: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
 
 
     Division.associate = (db) => {
-        Division.hasOne(db.Case, {
-            foreignKey: "division"
+        Division.hasMany(db.Case, {
+
         });
     };
     return Division;
