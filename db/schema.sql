@@ -1,0 +1,1 @@
+CREATE DATABASE docket_master_db;
