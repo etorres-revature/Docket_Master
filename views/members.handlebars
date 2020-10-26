@@ -1,52 +1,95 @@
-<div class="container">
-    <div class="row p-5 m-5">
-        <div class="col-md-6 col-md-offset-3">
-            <h2>Welcome <span class="member-name"></span></h2>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row p-5 m-5">
-        <div class="col-md-4">
-            <div class="btn-group">
-                <button class="btn btn-secondary btn-lg" type="button">
-                    Filter Cases
-                </button>
-                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Filter by Plaintiff</a>
-                    <a class="dropdown-item" href="#">Filter by Defendant</a>
-                    <a class="dropdown-item" href="#">Filter by Attorney</a>
-                    <a class="dropdown-item" href="#">Filter by Judge</a>
-                </div>
+<section id="welcome">
+    <div class="container">
+        <div class="row p-5 m-5">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Welcome <span class="member-name"></span></h2>
             </div>
         </div>
-        <div class="col-md-8">
-            <form>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name">
+    </div>
+</section>
+
+<section id="search">
+    <div class="container">
+        <div class="row p-5 m-5">
+            <form class="form-inline">
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-lg" type="button">
+                        Search By
+                    </button>
+                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Party Name</a>
+                        <a class="dropdown-item" href="#">Attorney Name</a>
                     </div>
                 </div>
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
     </div>
-</div>
+</section>
 
-<div class="container border">
-    <div class="row p-5 m-5">
-        <div class="col-md-12">
-            <ul>
-                {{#each case}}
-                {{/each}}
-            </ul>
+<section id="filter">
+    <div class="container">
+        <div class="row p-5 m-5">
+            <form class="form-inline">
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-lg" type="button">
+                        Filter Cases By
+                    </button>
+                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Judge</a>
+                        <a class="dropdown-item" href="#">Division</a>
+                    </div>
+                </div>
+                <label for="form-control-select">Example multiple select</label>
+                <select multiple class="form-control" id="form-control-select">
+                    {{#each item}}
+                    <option>{{this}}</option>
+                    {{/each}}
+                </select>
+            </form>
         </div>
     </div>
-</div>
+</section>
+
+<section id="results">
+    <div class="container border">
+        <div class="row p-5 m-5">
+            <div class="col-md-12">
+                {{#each case}}
+                <div class="case">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{caseNumber}}</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>{{caption}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Plaintiff's Attorney:</h3>
+                        <p>{{pAttorney}}</p>
+                        <br>
+                        <h3>Defendant's Attorney:</h3>
+                        <p>{{dAttorney}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Amount in Controversy:</h3>
+                        <p>{{amntCntrvsy}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>

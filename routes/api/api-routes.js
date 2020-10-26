@@ -1,11 +1,6 @@
 // Requiring our models and passport as we've configured it
-<<<<<<< HEAD:routes/api-routes.js
-const db = require("../models");
-const passport = require("../config/passport");
-=======
 var db = require("../../models");
 var passport = require("../../config/passport");
->>>>>>> origin/main:routes/api/api-routes.js
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -19,6 +14,7 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
+    console.log(req.body.email);
     db.User.create({
       email: req.body.email,
       password: req.body.password
