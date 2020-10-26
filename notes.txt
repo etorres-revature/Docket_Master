@@ -1,0 +1,5 @@
+Sequlize database seed commands:
+
+TO CREATE A TEMPLATE FILE IN THE SEEDERS DIR:  npx sequelize-cli seed:generate --name Table
+TO RUN ALL FILES IN THE SEEDERS DIR: npx sequelize-cli db:seed:all 
+TO UNDO THE SEEDEDING: npx sequelize-cli db:seed:undo

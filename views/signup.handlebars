@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row p-5 m-5">
+        <div class="col-md-6 col-md-offset-6">
+            <h2>Sign Up Form</h2>
+            <form class="signup" action="/api/signup" method="POST">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email-input" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password-input" placeholder="Password">
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Sign Up</button>
+            </form>
+            <br />
+            <p>Or log in <a href="/login">here</a></p>
+        </div>
+    </div>
+</div>
