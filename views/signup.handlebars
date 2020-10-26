@@ -1,38 +1,24 @@
 <div class="container">
     <div class="row p-5 m-5">
-        <div class="col-md-8">
-            <form action="/signup" method="POST">
-                {{!-- This would allow us to add first name and last name to User if needed --}}
-                {{!-- <div class="row">
-                    <div class="form-group">
-                        <label for="signup-firstName">First Name</label>
-                        <input type="text" class="form-control" id="signup-firstName">
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-lastName">Last Name</label>
-                        <input type="text" class="form-control" id="signup-lastName">
-                    </div>
-                </div> --}}
-                <div class="row">
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
+        <div class="col-md-6 col-md-offset-6">
+            <h2>Sign Up Form</h2>
+            <form class="signup" action="/signup" method="POST">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-passwordRetype">Retype Password</label>
-                        <input type="password" class="form-control" id="signup-passwordRetype">
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Sign Up</button>
             </form>
+            <br />
+            <p>Or log in <a href="/login">here</a></p>
         </div>
     </div>
 </div>
