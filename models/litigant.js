@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     // };
 
     Litigant.associate = (db) => {
-        Litigant.belongsToMany(db.Attorney, {
+        Litigant.belongsToMany(db.Case, {
             through: "case_litigant",
             foreignKey: "id"
 
