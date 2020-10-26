@@ -11,55 +11,34 @@ module.exports = (sequelize, DataTypes) => {
         },
         caption: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
 
         },
-        division: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+        // division: {
+        //     type: DataTypes.INTEGER,
+
+        // },
 
         Plaintiff: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            type: DataTypes.INTEGER,
+
         },
         pAttorney: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            type: DataTypes.INTEGER,
+
         },
         Defendant: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            type: DataTypes.INTEGER,
+            allowNull: true,
+
         },
         dAttorney: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        type: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+
         },
+        // type: {
+        //     type: DataTypes.INTEGER,
+
+        // },
         amntCntrvsy: {
             type: DataTypes.INTEGER
         }
@@ -68,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Case.associate = (db) => {
         Case.belongsToMany(db.Attorney, {
-            through: "case_profiles",
+            through: "case_attorney",
             foreignKey: "id"
 
         });
@@ -81,8 +60,8 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     Case.associate = (db) => {
-        Case.hasMany(db.Litigant, {
-            foreignKey: "litID"
+        Case.belongsToMany(db.Case, {
+            through: "case_litigant",
         });
     };
 
