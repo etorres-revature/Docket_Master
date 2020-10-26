@@ -2,7 +2,11 @@
 const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
+<<<<<<< HEAD:routes/html-routes.js
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+=======
+var isAuthenticated = require("../../config/middleware/isAuthenticated");
+>>>>>>> origin/main:routes/html/html-routes.js
 
 module.exports = function (app) {
 

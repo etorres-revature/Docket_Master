@@ -1,6 +1,11 @@
 // Requiring our models and passport as we've configured it
+<<<<<<< HEAD:routes/api-routes.js
 const db = require("../models");
 const passport = require("../config/passport");
+=======
+var db = require("../../models");
+var passport = require("../../config/passport");
+>>>>>>> origin/main:routes/api/api-routes.js
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
