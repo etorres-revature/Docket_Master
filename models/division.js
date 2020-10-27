@@ -38,9 +38,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
     Division.associate = (db) => {
-        Division.hasMany(db.Case, {
-
-        });
+        Division.hasMany(db.Case);
     };
     return Division;
 };
