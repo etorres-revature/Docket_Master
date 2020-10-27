@@ -3,6 +3,14 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
+router.get("/members", (req, res) => {
+  db.Case.findAll({}).then((cases) => {
+    res.render("members", {
+      cases
+    });
+  });
+});
+
 //@route        GET /api/cases
 //@desc         Get all cases
 //@access       Public

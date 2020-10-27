@@ -30,6 +30,7 @@
     },
     "homepage": "https://github.com/etorres-revature/Docket_Master#readme",
     "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.3",
         "bcryptjs": "2.4.3",
         "express": "^4.17.1",
         "express-handlebars": "^5.2.0",
@@ -39,5 +40,6 @@
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
         "sequelize": "^6.3.5"
-    }
+    },
+    "devDependencies": {}
 }

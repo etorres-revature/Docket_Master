@@ -3,10 +3,20 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
+router.get("/members", (req, res) => {
+  db.Division.findAll({}).then((divisions) => {
+    console.log("division get running");
+    res.render("members", {
+      divisions
+    });
+  });
+});
+
 //@route        GET /api/divisions
 //@desc         Get all divisions
 //@access       Public
 router.get("/api/divisions", (req, res) => {
+  console.log("division api running")
   db.Division.findAll({}).then((divisions) => {
     res.json(divisions);
   });

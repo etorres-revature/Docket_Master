@@ -9,50 +9,33 @@
 </section>
 
 <section id="search">
-    <div class="container">
-        <div class="row p-5 m-5">
+    <div class="container-fluid">
+        <div class="row">
             <form class="form-inline">
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-lg" type="button">
-                        Search By
-                    </button>
-                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Party Name</a>
-                        <a class="dropdown-item" href="#">Attorney Name</a>
-                    </div>
-                </div>
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <label for="search-by-litigant">Search By Litigant</label>
+                <input type="text" id="search-by-litigant">
+                <input type="submit" value="Search">
+            </form>
+            <form class="form-inline">
+                <label for="search-by-attorney">Search By Party</label>
+                <input type="text" id="search-by-party">
+                <input type="submit" value="Search">
             </form>
         </div>
     </div>
 </section>
 
+<br>
+
 <section id="filter">
-    <div class="container">
-        <div class="row p-5 m-5">
+    <div class="container-fluid">
+        <div class="row">
             <form class="form-inline">
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-lg" type="button">
-                        Filter Cases By
-                    </button>
-                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Judge</a>
-                        <a class="dropdown-item" href="#">Division</a>
-                    </div>
-                </div>
-                <label for="form-control-select">Example multiple select</label>
-                <select multiple class="form-control" id="form-control-select">
-                    {{#each item}}
-                    <option>{{this}}</option>
+                <label for="select-by-judge">Filter By Division</label>
+                <br>
+                <select multiple class="form-control" id="filter-by-division">
+                    {{#each divisions}}
+                    <option>{{division}}</option>
                     {{/each}}
                 </select>
             </form>
@@ -61,35 +44,22 @@
 </section>
 
 <section id="results">
-    <div class="container border">
-        <div class="row p-5 m-5">
-            <div class="col-md-12">
-                {{#each case}}
-                <div class="case">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>{{caseNumber}}</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>{{caption}}</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>Plaintiff's Attorney:</h3>
-                        <p>{{pAttorney}}</p>
-                        <br>
-                        <h3>Defendant's Attorney:</h3>
-                        <p>{{dAttorney}}</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>Amount in Controversy:</h3>
-                        <p>{{amntCntrvsy}}</p>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+    <div class="container-fluid border">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Case Number</th>
+                    <th scope="col">Caption</th>
+                </tr>
+            </thead>
+            {{#each cases}}
+            <tbody>
+                <tr>
+                    <th scope="row">{{caseNumber}}</th>
+                    <td>{{caption}}</td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
     </div>
 </section>

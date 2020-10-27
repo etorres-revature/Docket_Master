@@ -1,6 +1,8 @@
 // Requiring necessary npm packages
 var express = require("express");
+var Handlebars = require("handlebars");
 var exphbs = require("express-handlebars");
+var { allowInsecurePrototypeAccess } = require("@handlebars/allow-prototype-access");
 var session = require("express-session");
 var attorney = require("./routes/api/attorney");
 var caseController = require("./routes/api/case");
@@ -27,7 +29,9 @@ app.use(litigant);
 app.use(type);
 
 // Set Handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs(
+  { handlebars: allowInsecurePrototypeAccess(Handlebars) },
+  { defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // We need to use sessions to keep track of our user's login status
@@ -36,7 +40,7 @@ app.set("view engine", "handlebars");
 // app.use(passport.session());
 
 // Requiring our routes
-// require("./routes/html/html-routes.js")(app);
+require("./routes/html/html-routes.js")(app);
 // require("./routes/api/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
