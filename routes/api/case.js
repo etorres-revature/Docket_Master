@@ -7,7 +7,9 @@ const db = require("../../models");
 //@desc         Get all cases
 //@access       Public
 router.get("/api/cases", (req, res) => {
-  db.Case.findAll({}).then((cases) => {
+  db.Case.findAll({
+    include: [db.Type, db.Division, "Attorneyp", "Attorneyd", "plaint", "def"],
+  }).then((cases) => {
     res.json(cases);
   });
 });
