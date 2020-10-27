@@ -27,6 +27,15 @@ module.exports = function (app) {
       });
   });
 
+  // Route for populating /members with needed data
+  app.get("/members", (req, res) => {
+    db.Case.findAll({}).then((cases) => {
+      res.render("members", {
+        cases
+      });
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
