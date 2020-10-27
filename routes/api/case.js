@@ -7,7 +7,7 @@ const db = require("../../models");
 //@desc         Get all cases
 //@access       Public
 router.get("/api/cases", (req, res) => {
-  db.Case.finAll({}).then((cases) => {
+  db.Case.findAll({}).then((cases) => {
     res.json(cases);
   });
 });
@@ -62,3 +62,5 @@ router.delete("api/cases/:id", (req, res) => {
     res.json(delCase);
   });
 });
+
+module.exports = router;
