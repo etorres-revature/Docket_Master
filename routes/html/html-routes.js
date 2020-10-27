@@ -1,3 +1,5 @@
+const db = require("../../models");
+
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 
@@ -36,7 +38,7 @@ module.exports = function (app) {
     // Comment out pre-handlebars res.sendFile function
     // res.sendFile(path.join(__dirname, "../public/members.html"));
 
-    // Insert route to handlebars instead of /public/login.html
+    // Insert route to handlebars instead of /public/members.html
     res.render("members.handlebars");
   });
 

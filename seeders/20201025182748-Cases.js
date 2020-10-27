@@ -4,8 +4,8 @@ module.exports = {
     up: async (queryInterface, Sequelize) => {
 
         await queryInterface.bulkInsert('Cases', [{
-            caseNumber: '145svdx',
-            caption: "Some Stuff",
+            caseNumber: 'ABC-123',
+            caption: "test v. test",
             divisionId: 2,
             Plaintiff: 1,
             pAttorney: 1,
@@ -18,8 +18,8 @@ module.exports = {
 
         },
         {
-            caseNumber: '76fghwex',
-            caption: "More Stuff",
+            caseNumber: 'DEF-456',
+            caption: "test2 v.test2",
             divisionId: 1,
             Plaintiff: 4,
             pAttorney: 3,
@@ -32,8 +32,8 @@ module.exports = {
 
         },
         {
-            caseNumber: '34535Sectvt',
-            caption: "All kinds of Stuff",
+            caseNumber: 'HIJ-789',
+            caption: "test3 v.test3",
             divisionId: 2,
             Plaintiff: 3,
             pAttorney: 3,

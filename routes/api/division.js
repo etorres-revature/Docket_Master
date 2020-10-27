@@ -3,14 +3,14 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
-router.get("/members", (req, res) => {
-  db.Division.findAll({}).then((divisions) => {
-    console.log("division get running");
-    res.render("members", {
-      divisions
-    });
-  });
-});
+// This doesn't work because we already have a get route for /members in case.js
+// router.get("/members", (req, res) => {
+//   db.Division.findAll({}).then((divisions) => {
+//     res.render("members", {
+//       divisions
+//     });
+//   });
+// });
 
 //@route        GET /api/divisions
 //@desc         Get all divisions
