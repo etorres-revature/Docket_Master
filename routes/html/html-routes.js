@@ -34,6 +34,7 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route. // NEEDS TO BE ADDED BACK IN
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  // Note that we are using async / await to populate data (divisions and cases) on the main docket master page 
 
   app.get("/docketmaster", async (req, res) => {
     const divisions = await db.Division.findAll({});
@@ -44,19 +45,3 @@ module.exports = function (app) {
     });
   });
 };
-
-//   app.get("/docketmaster", function (req, res) {
-
-//     // Insert route to handlebars instead of /public/members.html
-//     db.Division.findAll({}).then((divisions) => {
-
-//     })
-//     db.Case.findAll({}).then((cases) => {
-//       console.log(cases);
-//       res.render("docketmaster", {
-//         cases
-//       });
-//     });
-//   });
-
-// };
