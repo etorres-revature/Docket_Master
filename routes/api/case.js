@@ -23,6 +23,7 @@ router.get("/api/cases/:id", (req, res) => {
     where: {
       id,
     },
+    include: [db.Type, db.Division, "Attorneyp", "Attorneyd", "plaint", "def"],
   }).then((oneCase) => {
     res.json(oneCase);
   });
