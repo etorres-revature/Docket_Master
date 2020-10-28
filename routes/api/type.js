@@ -7,7 +7,7 @@ const db = require("../../models");
 //@desc         Get all case types
 //@access       Public
 router.get("/api/types", (req, res) => {
-  db.Type.finAll({}).then((types) => {
+  db.Type.findAll({}).then((types) => {
     res.json(types);
   });
 });
@@ -62,3 +62,5 @@ router.delete("api/types/:id", (req, res) => {
     res.json(type);
   });
 });
+
+module.exports = router;

@@ -7,7 +7,8 @@ const db = require("../../models");
 //@desc         Get all attorneys
 //@access       Public
 router.get("/api/attorneys", (req, res) => {
-  db.Attorney.finAll({}).then((attys) => {
+  db.Attorney.findAll({}).then((attys) => {
+    console.log("inside attorney api get call")
     res.json(attys);
   });
 });
@@ -62,3 +63,5 @@ router.delete("api/attorneys/:id", (req, res) => {
     res.json(atty);
   });
 });
+
+module.exports = router;

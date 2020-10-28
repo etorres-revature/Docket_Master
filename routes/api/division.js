@@ -7,7 +7,7 @@ const db = require("../../models");
 //@desc         Get all divisions
 //@access       Public
 router.get("/api/divisions", (req, res) => {
-  db.Division.finAll({}).then((divisions) => {
+  db.Division.findAll({}).then((divisions) => {
     res.json(divisions);
   });
 });
@@ -62,3 +62,5 @@ router.delete("api/divisions/:id", (req, res) => {
     res.json(division);
   });
 });
+
+module.exports = router;
