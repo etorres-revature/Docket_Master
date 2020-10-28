@@ -27,10 +27,11 @@ module.exports = function (app) {
       });
   });
 
-  // Route for populating /members with needed data
-  app.get("/members", (req, res) => {
+  // Route for populating /docketmaster with needed data
+  app.get("/api/docketmaster", (req, res) => {
     db.Case.findAll({}).then((cases) => {
-      res.render("members", {
+      console.log(cases);
+      res.render("docketmaster", {
         cases
       });
     });

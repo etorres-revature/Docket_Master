@@ -4,13 +4,13 @@ const router = express.Router();
 const db = require("../../models");
 
 // Route to populate all cases on /members
-router.get("/members", (req, res) => {
-  db.Case.findAll({}).then((cases) => {
-    res.render("members", {
-      cases
-    });
-  });
-});
+// router.get("/members", (req, res) => {
+//   db.Case.findAll({}).then((cases) => {
+//     res.render("members", {
+//       cases
+//     });
+//   });
+// });
 
 //@route        GET /api/cases
 //@desc         Get all cases

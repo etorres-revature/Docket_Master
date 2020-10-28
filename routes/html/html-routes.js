@@ -11,7 +11,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/docketmaster");
     }
     // Comment out pre-handlebars res.sendFile function
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -23,7 +23,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/docketmaster");
     }
     // Comment out pre-handlebars res.sendFile function
     // res.sendFile(path.join(__dirname, "../public/login.html"));
@@ -32,14 +32,31 @@ module.exports = function (app) {
     res.render("login.handlebars");
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
+  // Here we've add our isAuthenticated middleware to this route. // NEEDS TO BE ADDED BACK IN
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", function (req, res) {
-    // Comment out pre-handlebars res.sendFile function
-    // res.sendFile(path.join(__dirname, "../public/members.html"));
 
-    // Insert route to handlebars instead of /public/members.html
-    res.render("members.handlebars");
+  app.get("/docketmaster", async (req, res) => {
+    const divisions = await db.Division.findAll({});
+    const cases = await db.Case.findAll({});
+    res.render("docketmaster", {
+      divisions,
+      cases
+    });
   });
-
 };
+
+//   app.get("/docketmaster", function (req, res) {
+
+//     // Insert route to handlebars instead of /public/members.html
+//     db.Division.findAll({}).then((divisions) => {
+
+//     })
+//     db.Case.findAll({}).then((cases) => {
+//       console.log(cases);
+//       res.render("docketmaster", {
+//         cases
+//       });
+//     });
+//   });
+
+// };
