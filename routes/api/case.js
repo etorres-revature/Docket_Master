@@ -3,13 +3,20 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
+// Route to populate all cases on /members
+// router.get("/members", (req, res) => {
+//   db.Case.findAll({}).then((cases) => {
+//     res.render("members", {
+//       cases
+//     });
+//   });
+// });
+
 //@route        GET /api/cases
 //@desc         Get all cases
 //@access       Public
 router.get("/api/cases", (req, res) => {
-  db.Case.findAll({
-    include: [db.Type, db.Division, "Attorneyp", "Attorneyd", "plaint", "def"],
-  }).then((cases) => {
+  db.Case.findAll({}).then((cases) => {
     res.json(cases);
   });
 });

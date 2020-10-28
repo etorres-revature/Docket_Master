@@ -27,6 +27,16 @@ module.exports = function (app) {
       });
   });
 
+  // Route for populating /docketmaster with needed data
+  app.get("/api/docketmaster", (req, res) => {
+    db.Case.findAll({}).then((cases) => {
+      console.log(cases);
+      res.render("docketmaster", {
+        cases
+      });
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
