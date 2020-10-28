@@ -1,0 +1,77 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+    <section id="dashboard-header">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Docket Dashboard</h1>
+        </div>
+    </section>
+
+    <section id="dashboard-search-filter">
+        <div class="container-fluid border pt-1">
+            <form class="form">
+                <label for="search-by-litigant">
+                    <h6>Search By Litigant</h6>
+                </label>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Search by Litigant" aria-label="Search">
+                    <div class="input-group-append">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid border pt-1">
+            <form class="form">
+                <label for="search-by-attorney">
+                    <h6>Search By Attorney</h6>
+                </label>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Search by Attorney" aria-label="Search">
+                    <div class="input-group-append">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid border pt-1 pb-3">
+            <form class="form">
+                <label for="filter-by-division">
+                    <h6>Filter By Division</h6>
+                </label>
+                <select multiple class="form-control" id="filter-by-division">
+                    {{#each divisions}}
+                    <option>{{division}}</option>
+                    {{/each}}
+                </select>
+            </form>
+        </div>
+    </section>
+
+    <section id="dashboard-results-table">
+        <div class="container-fluid pt-5">
+            <h2>Cases</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Case Number</th>
+                            <th scope="col">Caption</th>
+                        </tr>
+                    </thead>
+                    {{#each cases}}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{caseNumber}}</th>
+                            <td>{{caption}}</td>
+                        </tr>
+                    </tbody>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+    </section>
+
+</main>
