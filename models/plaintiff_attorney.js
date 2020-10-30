@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-    const Attorney = sequelize.define("Attorney", {
-        attorneyFName: {
+    const PlaintiffAttorney = sequelize.define("PlaintiffAttorney", {
+        FName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        attorneyLName: {
+        LName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -21,14 +21,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
+    PlaintiffAttorney.associate = (db) => {
+        PlaintiffAttorney.hasMany(db.Case, {
 
-    Attorney.associate = (db) => {
-        Attorney.belongsToMany(db.Case, {
-            through: "case_attorney",
-            as: "case"
-            // foreignKey: "caseNumber"
         });
     };
-
-    return Attorney;
+    return PlaintiffAttorney;
 };
