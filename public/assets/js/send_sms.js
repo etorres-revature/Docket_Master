@@ -1,8 +1,6 @@
   require("dotenv").config();
   const accountSid = process.env.TWI_ACCNTSID;
-  console.log(accountSid);
   const authToken = process.env.TWI_AUTHTOKEN;
-  console.log(authToken);
   const client = require("twilio")(accountSid, authToken);
 
 module.exports = (twilio) => {
