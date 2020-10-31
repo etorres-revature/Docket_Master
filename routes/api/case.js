@@ -59,46 +59,42 @@ router.get("/search/casenumber", (req, res) => {
         });
 });
 
-// router.get("/search/plaintiff", (req, res) => {
-//     let { litigantLName } = req.query;
-//     db.Plaintiff.findAll({
-//         where: {
-//             LName: litigantLName
-//         }
-//     })
-//         .then(plaintiff => {
-//             console.log(plaintiff);
-//             console.log(plaintiff.id);
-//             db.Case.findAll({
-//                 where: {
-//                     PlaintiffId: plaintiff.id
-//                 }
-//             })
-//         })
-//         .then(cases => {
-//             res.render("docketmaster", { cases })
-//         })
-//         .catch(err => {
-//             res.render("error", { error: err })
-//             console.log(req.query);
-//         });
-// });
+router.get("/search/plaintiff", async (req, res) => {
+    let { pLName } = req.query;
+    const allCases = await db.Case.findAll({
+        include: db.Plaintiff
+    });
+    console.log(allCases[0].dataValues.Plaintiff.LName);
+    // db.Case.findAll({
+    //     include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
+    //     where: {
+    //         Plaintiff: LName
+    //     }
+    // })
+    //     .then(cases => {
+    //         res.render("docketmaster", { cases })
+    //     })
+    //     .catch(err => {
+    //         res.render("error", { error: err })
+    //         console.log(req.query);
+    //     });
+});
 
-// router.get("/search/plaintiff-attorney", (req, res) => {
+router.get("/search/plaintiff-attorney", (req, res) => {
 
-// })
+})
 
-// router.get("/search/defendant", (req, res) => {
+router.get("/search/defendant", (req, res) => {
 
-// })
+})
 
-// router.get("/search/defense-attorney", (req, res) => {
+router.get("/search/defense-attorney", (req, res) => {
 
-// })
+})
 
-// router.get("/search/division", (req, res) => {
-//     let division = req.query;
-// })
+router.get("/search/division", (req, res) => {
+    let division = req.query;
+})
 
 
 
