@@ -30,7 +30,7 @@ router.get("/api/defense_attorneys/:id", (req, res) => {
 //@desc         Create new defense attorneys
 //@access       Public
 router.post("api/defense_attorneys", (req, res) => {
-  db.DefenseAttorney.create(res.body).then((newDefAtty) => {
+  db.DefenseAttorney.create(req.body).then((newDefAtty) => {
     res.status(201).json(newDefAtty);
   });
 });

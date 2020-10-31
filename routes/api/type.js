@@ -30,7 +30,7 @@ router.get("/api/types/:id", (req, res) => {
 //@desc         Create new case type
 //@access       Public
 router.post("api/types", (req, res) => {
-  db.Type.create(res.body).then((newType) => {
+  db.Type.create(req.body).then((newType) => {
     res.status(201).json(newType);
   });
 });

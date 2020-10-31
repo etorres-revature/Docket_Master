@@ -40,7 +40,7 @@ router.get("/api/divisions/:id", (req, res) => {
 //@desc         Create new division
 //@access       Public
 router.post("api/divisions", (req, res) => {
-  db.Division.create(res.body).then((newDiv) => {
+  db.Division.create(req.body).then((newDiv) => {
     res.status(201).json(newDiv);
   });
 });

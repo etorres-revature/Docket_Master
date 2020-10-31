@@ -7,7 +7,6 @@ const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const session = require("express-session");
-const attorney = require("./routes/api/attorney");
 const caseController = require("./routes/api/case");
 const defendant = require("./routes/api/defendant");
 const defAtty = require("./routes/api/defense_attorney");
@@ -31,7 +30,6 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //routes to use controllers
-app.use(attorney);
 app.use(caseController);
 app.use(defendant);
 app.use(defAtty);

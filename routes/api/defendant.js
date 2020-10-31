@@ -30,7 +30,6 @@ router.get("/api/defendants/:id", (req, res) => {
 //@desc         Create new defendants
 //@access       Public
 router.post("/api/defendants", (req, res) => {
-  console.log("this is in the def post request", req.body);
   db.Defendant.create(req.body).then((newDefendant) => {
     res.status(201).json(newDefendant);
   });
@@ -53,7 +52,7 @@ router.put("/api/defendants/:id", (req, res) => {
 //@route        DELETE /api/defendant/:id
 //@desc         Delete defendant
 //@access       Public
-router.delete("api/defendants/:id", (req, res) => {
+router.delete("/api/defendants/:id", (req, res) => {
   const { id } = req.params;
   db.Defendant.destroy({
     where: {

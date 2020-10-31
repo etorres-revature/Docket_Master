@@ -30,7 +30,7 @@ router.get("/api/plaintiff_attorney/:id", (req, res) => {
 //@desc         Create new plaintiff attorney
 //@access       Public
 router.post("api/plaintiff_attorney", (req, res) => {
-    db.PlaintiffAttorney.create(res.body).then((newPlaintAtty) => {
+    db.PlaintiffAttorney.create(req.body).then((newPlaintAtty) => {
         res.status(201).json(newPlaintAtty);
     });
 });
