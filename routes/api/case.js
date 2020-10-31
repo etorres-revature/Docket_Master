@@ -186,7 +186,7 @@ router.get("/search/division", (req, res) => {
 //@desc         Create new case
 //@access       Public
 router.post("api/cases", (req, res) => {
-    db.Case.create(res.body).then((newCase) => {
+    db.Case.create(req.body).then((newCase) => {
         res.status(201).json(newCase);
     });
 });

@@ -31,7 +31,7 @@ router.get("/api/attorneys/:id", (req, res) => {
 //@desc         Create new attorney
 //@access       Public
 router.post("api/attorneys", (req, res) => {
-  db.Attorney.create(res.body).then((newAtty) => {
+  db.Attorney.create(req.body).then((newAtty) => {
     res.status(201).json(newAtty);
   });
 });
