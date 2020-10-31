@@ -9,6 +9,7 @@ var caseController = require("./routes/api/case");
 var division = require("./routes/api/division");
 var litigant = require("./routes/api/litigant");
 var type = require("./routes/api/type");
+var plaintiff = require("./routes/api/plaintiff");
 
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
@@ -22,12 +23,13 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-// Commenting out the table routes for now and building database routes in the api file
+
 app.use(attorney);
 app.use(caseController);
 app.use(division);
 app.use(litigant);
 app.use(type);
+app.use(plaintiff);
 
 // Set Handlebars
 // Note that there is new handlebars feature that bugs with sequelize unless the "allowInsecurePrototypeAccess" workaround is used
@@ -46,8 +48,8 @@ require("./routes/api/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 // Set force back to true to drop and recreate all tables on server startup
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
+db.sequelize.sync({ force: false }).then(function () {
+    app.listen(PORT, function () {
         console.log(
             "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
             PORT,
