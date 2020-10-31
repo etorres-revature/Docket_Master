@@ -106,5 +106,5 @@ dist
 # MAC OS Users
 .DS_Store
 
-# db config files
-config/config.json
+# dotenv
+.env
