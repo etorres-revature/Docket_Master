@@ -29,7 +29,7 @@ router.get("/api/types/:id", (req, res) => {
 //@route        POST /api/types
 //@desc         Create new case type
 //@access       Public
-router.post("api/types", (req, res) => {
+router.post("/api/types", (req, res) => {
   db.Type.create(req.body).then((newType) => {
     res.status(201).json(newType);
   });
@@ -38,7 +38,7 @@ router.post("api/types", (req, res) => {
 //@route        PUT /api/types/:id
 //@desc         Update type
 //@access       Public
-router.put("api/types/:id", (req, res) => {
+router.put("/api/types/:id", (req, res) => {
   const { id } = req.params;
   db.Type.update({
     where: {
@@ -52,7 +52,7 @@ router.put("api/types/:id", (req, res) => {
 //@route        DELETE /api/types/:id
 //@desc         Delete type
 //@access       Public
-router.delete("api/types/:id", (req, res) => {
+router.delete("/api/types/:id", (req, res) => {
   const { id } = req.params;
   db.Type.destroy({
     where: {

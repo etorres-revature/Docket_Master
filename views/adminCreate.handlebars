@@ -21,10 +21,8 @@
 <form id="create-dAtty">
     <div class="form-group">
         <label for="dAtty"><strong>Enter Defense Attorney</strong></label>
-        <input type="text" class="form-control" id="dAttyFName" name="dAtty"
-            placeholder="type in first name here" />
-        <input type="text" class="form-control" id="dAttyLName" name="dAtty"
-            placeholder="type in last name here" />
+        <input type="text" class="form-control" id="dAttyFName" name="dAtty" placeholder="type in first name here" />
+        <input type="text" class="form-control" id="dAttyLName" name="dAtty" placeholder="type in last name here" />
         <input type="text" class="form-control" id="dAttyBarNo" name="dAtty"
             placeholder="type in Attorney Bar Roll No." />
     </div>
@@ -33,12 +31,30 @@
 <form id="create-pAtty">
     <div class="form-group">
         <label for="pAtty"><strong>Enter Plaintiff Attorney</strong></label>
-        <input type="text" class="form-control" id="pAttyFName" name="pAtty"
-            placeholder="type in first name here" />
-        <input type="text" class="form-control" id="pAttyLName" name="pAtty"
-            placeholder="type in last name here" />
-              <input type="text" class="form-control" id="pAttyBarNo" name="dAtty"
+        <input type="text" class="form-control" id="pAttyFName" name="pAtty" placeholder="type in first name here" />
+        <input type="text" class="form-control" id="pAttyLName" name="pAtty" placeholder="type in last name here" />
+        <input type="text" class="form-control" id="pAttyBarNo" name="dAtty"
             placeholder="type in Attorney Bar Roll No." />
     </div>
     <button type="submit" class="btn">Add this Prosecutor</button>
+</form>
+<form id="create-division">
+    <div class="form-group">
+        <label for="division"><strong>Enter New Division</strong></label>
+        <input type="text" class="form-control" id="division" name="division" placeholder="type in division alphabet" />
+        <input type="text" class="form-control" id="judgeFName" name="division"
+            placeholder="type in Judge first name here" />
+        <input type="text" class="form-control" id="judgeLName" name="division"
+            placeholder="type in Judge last name here." />
+        <input type="text" class="form-control" id="roomNumber" name="division"
+            placeholder="type in room number here" />
+    </div>
+    <button type="submit" class="btn">Add this Division</button>
+</form>
+<form id="create-type">
+    <div class="form-group">
+        <label for="type"><strong>Enter New Classification of Case</strong></label>
+        <input type="text" class="form-control" id="type" name="type" placeholder="type in new type of case here" />
+    </div>
+    <button type="submit" class="btn">Add this Classification</button>
 </form>
