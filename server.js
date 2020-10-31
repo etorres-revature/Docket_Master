@@ -13,7 +13,6 @@ const defAtty = require("./routes/api/defense_attorney");
 const division = require("./routes/api/division");
 const plaintAty = require("./routes/api/plaintiff_attorney");
 const plaintiff = require("./routes/api/plaintiff");
-const plaintiff = require("./routes/api/plaintiff");
 const twilio = require("./routes/api/twilio");
 const type = require("./routes/api/type");
 

@@ -16,18 +16,10 @@ const db = require("../../models");
 //@desc         Get all cases
 //@access       Public
 router.get("/api/cases", (req, res) => {
-<<<<<<< HEAD
-  db.Case.findAll({
-    include: [db.Type, db.Division, "Attorneyp", "Attorneyd", "plaint", "def"],
-  }).then((cases) => {
-    res.json(cases);
-  });
-=======
     db.Case.findAll({ include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney] }).then((cases) => {
         console.log(cases);
         res.json(cases);
     }).catch((err) => console.log("Error while searching : ", err));
->>>>>>> 537ad7be93744770872778a53870a9d5792445df
 });
 
 //@route        GET /api/cases/:id
