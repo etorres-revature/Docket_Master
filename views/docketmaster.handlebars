@@ -101,11 +101,18 @@
                 <label for="filter-by-division">
                     <h6>Filter By Division</h6>
                 </label>
-                <select multiple class="form-control" id="filter-by-division" name="division">
-                    {{#each divisions}}
-                    <option>{{division}}</option>
-                    {{/each}}
-                </select>
+                <div class="row">
+                    <div class="col">
+                        <select class="form-control" id="filter-by-division" name="division">
+                            {{#each divisions}}
+                            <option>{{division}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col pt-1">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
             </form>
         </div>
     </section>

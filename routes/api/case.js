@@ -97,7 +97,7 @@ router.get("/search/casenumber", (req, res) => {
 // })
 
 // router.get("/search/division", (req, res) => {
-
+//     let division = req.query;
 // })
 
 
