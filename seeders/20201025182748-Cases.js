@@ -1,15 +1,21 @@
 "use strict";
 
 
+let PlaintiffId = 1;
+let PlaintiffAttorneyId = 1;
+let DefendantId = 1;
+let DefenseAttorneyId = 1;
+
 const faker = require('faker');
-const Cases = [...Array(50)].map((Cases) => ({
+const Cases = [...Array(100)].map((Cases) => ({
+
     caseNumber: faker.finance.bitcoinAddress(),
     caption: "xxxx vs xxxx",
     divisionId: Math.floor(Math.random() * 2) + 1,
-    PlaintiffId: Math.floor(Math.random() * 100) + 1,
-    PlaintiffAttorneyId: Math.floor(Math.random() * 100) + 1,
-    DefendantId: Math.floor(Math.random() * 100) + 1,
-    DefenseAttorneyId: Math.floor(Math.random() * 100) + 1,
+    PlaintiffId: PlaintiffId++,
+    PlaintiffAttorneyId: PlaintiffAttorneyId++,
+    DefendantId: DefendantId++,
+    DefenseAttorneyId: DefenseAttorneyId++,
     TypeId: Math.floor(Math.random() * 3) + 1,
     amntCntrvsy: Math.floor(Math.random() * 100000) + 1,
     createdAt: new Date(),
