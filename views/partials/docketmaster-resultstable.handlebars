@@ -9,6 +9,8 @@
                         <th scope="col">Case Number</th>
                         <th scope="col">Caption</th>
                         <th scope="col">Amount in Controversy</th>
+                         <th scope="col">Plaintiff</th>
+                         <th scope="col">Defendant</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -18,6 +20,11 @@
                         <th scope="row" id="case-number">{{caseNumber}}</th>
                         <td id="caption">{{caption}}</td>
                         <td id="amount-in-controversy">{{amntCntrvsy}}</td>
+                       
+                        <td id="plaintiff-cell">
+                            {{Plaintiff.LName}}, {{Plaintiff.FName}}</td>
+                            <td id="defeadant-cell">
+                            {{Defendant.LName}}, {{Defendant.FName}}</td>
                         <td class="ml-5" id="update-field" data-id="{{id}}">
                             <button type="button" class="btn btn-primary btn-sm" id="update-btn" data-toggle="modal"
                                 data-target="#update-modal">
@@ -30,7 +37,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-case-information"
+    {{!-- <div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-case-information"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -125,6 +132,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </section>
