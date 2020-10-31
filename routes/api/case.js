@@ -41,6 +41,67 @@ router.get("/api/cases/:id", (req, res) => {
     }).catch((err) => console.log("Error while searching : ", err));
 });
 
+// Add search routing to the get case routers
+
+router.get("/search/casenumber", (req, res) => {
+    let { caseNumber } = req.query;
+    db.Case.findAll({
+        where: {
+            caseNumber
+        }
+    })
+        .then(cases => {
+            res.render("docketmaster", { cases })
+        })
+        .catch(err => {
+            res.render("error", { error: err })
+            console.log(req.query);
+        });
+});
+
+// router.get("/search/plaintiff", (req, res) => {
+//     let { litigantLName } = req.query;
+//     db.Plaintiff.findAll({
+//         where: {
+//             LName: litigantLName
+//         }
+//     })
+//         .then(plaintiff => {
+//             console.log(plaintiff);
+//             console.log(plaintiff.id);
+//             db.Case.findAll({
+//                 where: {
+//                     PlaintiffId: plaintiff.id
+//                 }
+//             })
+//         })
+//         .then(cases => {
+//             res.render("docketmaster", { cases })
+//         })
+//         .catch(err => {
+//             res.render("error", { error: err })
+//             console.log(req.query);
+//         });
+// });
+
+// router.get("/search/plaintiff-attorney", (req, res) => {
+
+// })
+
+// router.get("/search/defendant", (req, res) => {
+
+// })
+
+// router.get("/search/defense-attorney", (req, res) => {
+
+// })
+
+// router.get("/search/division", (req, res) => {
+
+// })
+
+
+
 //@route        POST /api/cases
 //@desc         Create new case
 //@access       Public

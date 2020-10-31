@@ -9,13 +9,17 @@
 
     <section id="dashboard-search-filter">
         <div class="container-fluid border pt-1">
-            <form class="form">
-                <label for="search-by-litigant">
-                    <h6>Search By Litigant</h6>
+            <form class="form" action="/search/casenumber">
+                <label for="search-by-case-number">
+                    <h6>Search By Case Number</h6>
                 </label>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" placeholder="Search by Litigant" aria-label="Search">
-                    <div class="input-group-append">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="search-case-number" aria-label="Search"
+                            name="caseNumber">
+                        <small class="form-text text-muted">Case Number</small>
+                    </div>
+                    <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
                     </div>
                 </div>
@@ -23,13 +27,69 @@
         </div>
         <br>
         <div class="container-fluid border pt-1">
-            <form class="form">
-                <label for="search-by-attorney">
-                    <h6>Search By Attorney</h6>
+            <form class="form" action="/search/plaintiff">
+                <label for="search-by-plaintiff">
+                    <h6>Search By Plaintiff</h6>
                 </label>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" placeholder="Search by Attorney" aria-label="Search">
-                    <div class="input-group-append">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="search-plaintiff" aria-label="Search" name="pLName">
+                        <small class="form-text text-muted">Last Name</small>
+                    </div>
+                    <div class="col pt-1">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid border pt-1">
+            <form class="form" action="/search/plaintiff-attorney">
+                <label for="search-by-plaintiff-attorney">
+                    <h6>Search By Plaintiff Attorney</h6>
+                </label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="search-plaintiff-attorney" aria-label="Search"
+                            name="pAttyLName">
+                        <small class="form-text text-muted">Last Name</small>
+                    </div>
+                    <div class="col pt-1">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid border pt-1">
+            <form class="form" action="/search/defendant">
+                <label for="search-by-defendant">
+                    <h6>Search By Defendant</h6>
+                </label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="search-defendant" aria-label="Search" name="dLName">
+                        <small class="form-text text-muted">Last Name</small>
+                    </div>
+                    <div class="col pt-1">
+                        <input class="btn-primary" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid border pt-1">
+            <form class="form" action="/search/defense-attorney">
+                <label for="search-by-defense-attorney">
+                    <h6>Search By Defense Attorney</h6>
+                </label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="search-defense-attorney" aria-label="Search"
+                            name="dAttyLName">
+                        <small class="form-text text-muted">Last Name</small>
+                    </div>
+                    <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
                     </div>
                 </div>
@@ -37,11 +97,11 @@
         </div>
         <br>
         <div class="container-fluid border pt-1 pb-3">
-            <form class="form">
+            <form class="form" action="/search/division">
                 <label for="filter-by-division">
                     <h6>Filter By Division</h6>
                 </label>
-                <select multiple class="form-control" id="filter-by-division">
+                <select multiple class="form-control" id="filter-by-division" name="division">
                     {{#each divisions}}
                     <option>{{division}}</option>
                     {{/each}}
@@ -66,10 +126,10 @@
                     </thead>
                     {{#each cases}}
                     <tbody>
-                        <tr>
-                            <th scope="row">{{caseNumber}}</th>
-                            <td>{{caption}}</td>
-                            <td>{{amntCntrvsy}}</td>
+                        <tr id="caseRow">
+                            <th scope="row" id="case-number">{{caseNumber}}</th>
+                            <td id="caption">{{caption}}</td>
+                            <td id="amount-in-controversy">{{amntCntrvsy}}</td>
                             <td class="ml-5" id="update-field" data-id="{{id}}">
                                 <button type="button" class="btn btn-primary btn-sm" id="update-btn" data-toggle="modal"
                                     data-target="#update-modal">
