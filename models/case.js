@@ -40,19 +40,19 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Case.belongsTo(db.Plaintiff, {
-            // foreignKey: "PlaintiffId",
+            foreignKey: "Plaintiffid",
         });
 
         Case.belongsTo(db.Defendant, {
-            // foreignKey: "DefendantId",
+            foreignKey: "Defendantid",
         });
 
         Case.belongsTo(db.DefenseAttorney, {
-            // foreignKey: "Defense_attorneyId",
+            foreignKey: "DefenseAttorneyid",
         });
 
         Case.belongsTo(db.PlaintiffAttorney, {
-            // foreignKey: "Plaintiff_attorneyId",
+            foreignKey: "PlaintiffAttorneyid",
         });
 
         Case.belongsTo(db.Type, {
