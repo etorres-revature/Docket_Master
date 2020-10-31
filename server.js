@@ -8,11 +8,14 @@ const {
 const session = require("express-session");
 const attorney = require("./routes/api/attorney");
 const caseController = require("./routes/api/case");
+const defendant = require("./routes/api/defendant");
+const defAtty = require("./routes/api/defense_attorney");
 const division = require("./routes/api/division");
-const litigant = require("./routes/api/litigant");
-const type = require("./routes/api/type");
+const plaintAty = require("./routes/api/plaintiff_attorney");
+const plaintiff = require("./routes/api/plaintiff");
 const plaintiff = require("./routes/api/plaintiff");
 const twilio = require("./routes/api/twilio");
+const type = require("./routes/api/type");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -30,11 +33,13 @@ app.use(express.static("public"));
 //routes to use controllers
 app.use(attorney);
 app.use(caseController);
+app.use(defendant);
+app.use(defAtty);
 app.use(division);
-app.use(litigant);
-app.use(type);
+app.use(plaintAty);
 app.use(plaintiff);
 app.use(twilio);
+app.use(type);
 
 // Set Handlebars
 // Note that there is new handlebars feature that bugs with sequelize unless the "allowInsecurePrototypeAccess" workaround is used
