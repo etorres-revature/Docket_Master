@@ -46,6 +46,10 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/docketmaster/view", function (req, res) {
+    res.render("view.handlebars");
+  });
+
   app.get("/docketmaster/add", function (req, res) {
     res.render("add.handlebars");
   })
