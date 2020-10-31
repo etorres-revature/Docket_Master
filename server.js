@@ -13,7 +13,6 @@ const defAtty = require("./routes/api/defense_attorney");
 const division = require("./routes/api/division");
 const plaintAty = require("./routes/api/plaintiff_attorney");
 const plaintiff = require("./routes/api/plaintiff");
-const plaintiff = require("./routes/api/plaintiff");
 const twilio = require("./routes/api/twilio");
 const type = require("./routes/api/type");
 
@@ -53,9 +52,9 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // We need to use sessions to keep track of our user's login status
-// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Requiring our routes
 require("./routes/html/html-routes.js")(app);
