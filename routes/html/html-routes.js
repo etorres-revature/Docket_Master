@@ -5,6 +5,7 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../../config/middleware/isAuthenticated");
+const { ppid } = require("process");
 
 module.exports = function (app) {
 
@@ -44,4 +45,14 @@ module.exports = function (app) {
       cases
     });
   });
+
+  app.get("/docketmaster/view", function (req, res) {
+    res.render("view.handlebars");
+  });
+
+  app.get("/docketmaster/add", function (req, res) {
+    res.render("add.handlebars");
+  })
 };
+
+

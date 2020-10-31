@@ -5,7 +5,7 @@
   console.log(authToken);
   const client = require("twilio")(accountSid, authToken);
 
-module.exports (twilio) => {
+module.exports = (twilio) => {
   client.messages
     .create({
       body:

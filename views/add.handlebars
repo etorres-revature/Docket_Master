@@ -1,0 +1,237 @@
+{{> docketmaster-navbar}}
+{{> docketmaster-sidebar}}
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            View All Cases
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Add Case
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            About Docket Master
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+    <section id="dashboard-header">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Add Case</h1>
+        </div>
+    </section>
+
+    <section id="dashboard-add-case">
+        <div class="container-fluid border pt-1">
+            <form class="form" action="/add/case">
+                <div class="form-group">
+                    <label for="add-case-number" class="col-form-label">Case Number</label>
+                    <input type="text" class="form-control" id="add-case-number">
+                </div>
+                <div class="form-group">
+                    <label for="add-caption" class="col-form-label">Caption</label>
+                    <input type="text" class="form-control" id="add-caption">
+                </div>
+                <div class="form-group">
+                    <label for="add-plaintiff-name" class="col-form-label">Plaintiff Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-plaintiff-fName">
+                            <small class="form-text text-muted">First Name</small>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-plaintiff-lName">
+                            <small class="form-text text-muted">Last Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="add-pAttorney-name" class="col-form-label">Plaintiff Attorney
+                        Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-pAttorney-fName">
+                            <small class="form-text text-muted">First Name</small>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-pAttorney-lName">
+                            <small class="form-text text-muted">Last Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="add-defendant-name" class="col-form-label">Defendant Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-defendant-fName">
+                            <small class="form-text text-muted">First Name</small>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-defendant-lName">
+                            <small class="form-text text-muted">Last Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="add-dAttorney-name" class="col-form-label">Defendant Attorney
+                        Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-dAttorney-fName">
+                            <small class="form-text text-muted">First Name</small>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="add-dAttorney-lName">
+                            <small class="form-text text-muted">Last Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dd-amount-in-controversy" class="col-form-label">Amount in
+                        Controversy</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" id="add-amount-in-controversy">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary float-right">Add</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-case-information"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-case-information">Case Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="update-case-number" class="col-form-label">Case Number</label>
+                        <input type="text" class="form-control" id="update-case-number">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-caption" class="col-form-label">Caption</label>
+                        <input type="text" class="form-control" id="update-caption">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-plaintiff-name" class="col-form-label">Plaintiff Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-plaintiff-fName">
+                                <small class="form-text text-muted">First Name</small>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-plaintiff-lName">
+                                <small class="form-text text-muted">Last Name</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-pAttorney-name" class="col-form-label">Plaintiff Attorney
+                            Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-pAttorney-fName">
+                                <small class="form-text text-muted">First Name</small>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-pAttorney-lName">
+                                <small class="form-text text-muted">Last Name</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-defendant-name" class="col-form-label">Defendant Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-defendant-fName">
+                                <small class="form-text text-muted">First Name</small>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-defendant-lName">
+                                <small class="form-text text-muted">Last Name</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-dAttorney-name" class="col-form-label">Defendant Attorney
+                            Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-dAttorney-fName">
+                                <small class="form-text text-muted">First Name</small>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="update-dAttorney-lName">
+                                <small class="form-text text-muted">Last Name</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-amount-in-controversy" class="col-form-label">Amount in
+                            Controversy</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="form-control" id="update-amount-in-controversy">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+</main>
