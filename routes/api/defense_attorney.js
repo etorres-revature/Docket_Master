@@ -29,8 +29,8 @@ router.get("/api/defense_attorneys/:id", (req, res) => {
 //@route        POST /api/defense_attorneys
 //@desc         Create new defense attorneys
 //@access       Public
-router.post("api/defense_attorneys", (req, res) => {
-  db.DefenseAttorney.create(res.body).then((newDefAtty) => {
+router.post("/api/defense_attorneys", (req, res) => {
+  db.DefenseAttorney.create(req.body).then((newDefAtty) => {
     res.status(201).json(newDefAtty);
   });
 });
@@ -38,7 +38,7 @@ router.post("api/defense_attorneys", (req, res) => {
 //@route        PUT /api/defense_attorneys/:id
 //@desc         Update defense attorney
 //@access       Public
-router.put("api/defense_attorneys/:id", (req, res) => {
+router.put("/api/defense_attorneys/:id", (req, res) => {
   const { id } = req.params;
   db.DefenseAttorney.update({
     where: {
@@ -52,7 +52,7 @@ router.put("api/defense_attorneys/:id", (req, res) => {
 //@route        DELETE /api/defense_attorneys/:id
 //@desc         Delete defense attorney
 //@access       Public
-router.delete("api/defense_attorney/:id", (req, res) => {
+router.delete("/api/defense_attorney/:id", (req, res) => {
   const { id } = req.params;
   db.DefenseAttorney.destroy({
     where: {

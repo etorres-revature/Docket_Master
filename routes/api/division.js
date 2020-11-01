@@ -39,8 +39,8 @@ router.get("/api/divisions/:id", (req, res) => {
 //@route        POST /api/divisions
 //@desc         Create new division
 //@access       Public
-router.post("api/divisions", (req, res) => {
-  db.Division.create(res.body).then((newDiv) => {
+router.post("/api/divisions", (req, res) => {
+  db.Division.create(req.body).then((newDiv) => {
     res.status(201).json(newDiv);
   });
 });
@@ -48,7 +48,7 @@ router.post("api/divisions", (req, res) => {
 //@route        PUT /api/divisions/:id
 //@desc         Update division
 //@access       Public
-router.put("api/divisions/:id", (req, res) => {
+router.put("/api/divisions/:id", (req, res) => {
   const { id } = req.params;
   db.Division.update({
     where: {
@@ -62,7 +62,7 @@ router.put("api/divisions/:id", (req, res) => {
 //@route        DELETE /api/division/:id
 //@desc         Delete division
 //@access       Public
-router.delete("api/divisions/:id", (req, res) => {
+router.delete("/api/divisions/:id", (req, res) => {
   const { id } = req.params;
   db.Division.destroy({
     where: {

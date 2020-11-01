@@ -1,4 +1,4 @@
-// const updateBtn = $(".btn");
+
 const updateModal = $("#update-modal");
 const updateCaseNumberField = $("#update-case-number");
 const updateCaptionField = $("#update-caption");
@@ -46,3 +46,4 @@ updateBtn.on("click", function(event) {
         updateAmountField.val(amountInControversy);
     })
 });
+

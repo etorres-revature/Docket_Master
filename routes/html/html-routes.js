@@ -59,6 +59,13 @@ module.exports = function (app) {
     res.render("add.handlebars");
   });
 
+
+  app.get("/docketmaster/admin/create", (req, res) => {
+    res.render("adminCreate.handlebars");
+  });
+};
+
+
   app.get("/docketmaster/admin/views", async (req, res) => {
     const plaintiffs = await db.Plaintiff.findAll({});
     const defendants = await db.Defendant.findAll({});
