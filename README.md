@@ -5,7 +5,9 @@
 
 ## Project Description
 
-The integrated court system is a fast-paced, dynamic environment that changes by the moment.  Docket Master helps participants to keep track of the cases, litigants, attorneys, as well as the Division the case is located and the amount of the case.  Docket Master uses MySQL to organize its back-end.  Sequelize provides the Object Relational Mapping (ORM) support.   Express provies routing and middleware capabilities.  Node.js is the runtime environment for Docket Master.  HTML, CSS, Bootstrap, and Express Handlebars provide the views for user interaction and interface with Docket Master.
+The integrated court system is a fast-paced, dynamic environment that changes by the moment.  Docket Master helps participants to keep track of the cases, litigants, attorneys, as well as the Division the case is located and the amount of the case.  
+
+Docket Master uses MySQL to organize its back-end.  Sequelize provides the Object Relational Mapping (ORM) support.   Express provides routing and middleware capabilities.  Node.js is the runtime environment for Docket Master.  HTML, CSS, Bootstrap, and Express Handlebars provide the views for user interaction and interface with Docket Master.
 
 ## Table of Contents
 
@@ -17,7 +19,7 @@ The integrated court system is a fast-paced, dynamic environment that changes by
 * [Contributing](#guidelines-for-contributing)
 * [Tests](#tests)
 * [Technologies](#technologies-used)
-* [Author](#author)
+* [Collaborators](#collaborators)
 * [Questions](#questions)
 * [License](#license)
 
@@ -94,15 +96,25 @@ Separation of formatting and content also makes it feasible to present the same 
 
 *Handlebars* content borrowed  from <a target="_blank" rel="noopener noreferrer">[this page](https://handlebarsjs.com/guide/).</a>
 
-### Author 
+### Collaborators 
 
-This *Docket Master* was built by :green_heart: Eric D. Torres :green_heart:
+*Docket Master* was conceived, created, and coded by:
+
+:cat: Alize Hassan :cat:
+:bulb: James Howard :bulb:
+:green_heart: Eric D. Torres :green_heart:
+:beer: Shane Schilling :beer:
+
+Check out our GitHub profiles:
+
+* [Alize Hassan](https://github.com/alizehssn);
+* [James Howard](https://github.com/jth2698);
+* [Eric D. Torres](https://github.com/etorres-revature);
+* [Shane Schilling](https://github.com/trilambda122).
 
 ## Questions
 
-Check out my [GitHub profile](https://github.com/etorres-revature).
-
-You can contact me by e-mail at etorresnotary@gmail.com for any additional questions and/ or clarifications you may need about the project.
+You can contact Eric D. Torres by e-mail at etorresnotary@gmail.com for any additional questions and/ or clarifications you may need about the project.
 
 ##### License
 
