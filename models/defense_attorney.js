@@ -21,8 +21,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-
-
     DefenseAttorney.associate = (db) => {
         DefenseAttorney.hasMany(db.Case, {
 

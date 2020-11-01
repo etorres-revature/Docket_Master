@@ -7,6 +7,7 @@ const path = require("path");
 var isAuthenticated = require("../../config/middleware/isAuthenticated");
 const { ppid } = require("process");
 
+
 module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
@@ -42,12 +43,17 @@ module.exports = function (app) {
     res.render("docketmaster", {
       divisions,
       cases,
-    });
-  });
 
-  app.get("/docketmaster/view", function (req, res) {
-    res.render("view.handlebars");
-  });
+    });
+
+    app.get("/login", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            res.redirect("/docketmaster");
+        }
+        // Comment out pre-handlebars res.sendFile function
+        // res.sendFile(path.join(__dirname, "../public/login.html"));
+
 
   app.get("/docketmaster/add", function (req, res) {
     res.render("add.handlebars");
@@ -70,3 +76,12 @@ module.exports = function (app) {
     });
   });
 };
+            
+app.get("/docketmaster/view", async(req, res) => {
+
+  const cases = await db.Case.findAll({
+      include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        });
+
+        res.render("view.handlebars", { cases });
+    });
