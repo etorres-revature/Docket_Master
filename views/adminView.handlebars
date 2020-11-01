@@ -25,26 +25,28 @@
         </ol>
     </div>
 </div>
+
 <div class="card">
     <div class="card-header">
-        Types
+        Plaintiff Attorneys
     </div>
     <div class="card-body">
         <ol>
-            {{#each types}}
-            {{> tableViews/type-block}}
+            {{#each pAttys}}
+            {{> tableViews/pAtty-block}}
             {{/each}}
         </ol>
     </div>
 </div>
+
 <div class="card">
     <div class="card-header">
-        Types
+        Defendant Attorneys
     </div>
     <div class="card-body">
         <ol>
-            {{#each types}}
-            {{> tableViews/type-block}}
+            {{#each dAttys}}
+            {{> tableViews/dAtty-block}}
             {{/each}}
         </ol>
     </div>

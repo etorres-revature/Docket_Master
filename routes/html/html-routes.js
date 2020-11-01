@@ -8,7 +8,6 @@ var isAuthenticated = require("../../config/middleware/isAuthenticated");
 const { ppid } = require("process");
 
 module.exports = function (app) {
-
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -35,14 +34,14 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route. // NEEDS TO BE ADDED BACK IN
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // Note that we are using async / await to populate data (divisions and cases) on the main docket master page 
+  // Note that we are using async / await to populate data (divisions and cases) on the main docket master page
 
   app.get("/docketmaster", async (req, res) => {
     const divisions = await db.Division.findAll({});
     const cases = await db.Case.findAll({});
     res.render("docketmaster", {
       divisions,
-      cases
+      cases,
     });
   });
 
@@ -52,18 +51,22 @@ module.exports = function (app) {
 
   app.get("/docketmaster/add", function (req, res) {
     res.render("add.handlebars");
-  })
+  });
 
   app.get("/docketmaster/admin/views", async (req, res) => {
-    const plaintiffs = await db.Plaintiff.findAll({})
-    const defendants = await db.Defendant.findAll({})
+    const plaintiffs = await db.Plaintiff.findAll({});
+    const defendants = await db.Defendant.findAll({});
+    const pAttys = await db.PlaintiffAttorney.findAll({});
+    const dAttys = await db.DefenseAttorney.findAll({});
+    const divisions = await db.Division.findAll({});
     const types = await db.Type.findAll({});
     res.render("adminView.handlebars", {
       plaintiffs,
       defendants,
-      types
+      pAttys,
+      dAttys,
+      divisions,
+      types,
     });
-  })
+  });
 };
-
-
