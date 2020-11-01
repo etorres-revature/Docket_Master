@@ -18,13 +18,13 @@
                 <tbody>
                     <tr id="caseRow">
                         <th scope="row" id="case-number">{{caseNumber}}</th>
-                        <td id="caption">{{caption}}</td>
+                        <td id="caption"> {{Plaintiff.LName}} vs. {{Defendant.LName}}</td>
                         <td id="amount-in-controversy">{{amntCntrvsy}}</td>
                        
-                        <td id="plaintiff-cell">
+                        {{!-- <td id="plaintiff-cell">
                             {{Plaintiff.LName}}, {{Plaintiff.FName}}</td>
                             <td id="defeadant-cell">
-                            {{Defendant.LName}}, {{Defendant.FName}}</td>
+                            {{Defendant.LName}}, {{Defendant.FName}}</td> --}}
                         <td class="ml-5" id="update-field" data-id="{{id}}">
                             <button type="button" class="btn btn-primary btn-sm" id="update-btn" data-toggle="modal"
                                 data-target="#update-modal">

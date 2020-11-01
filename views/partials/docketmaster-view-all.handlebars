@@ -1,0 +1,71 @@
+<section id="dashboard-results-table">
+
+    <div class="container-fluid pt-5">
+        <h2>Cases</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Case Number</th>
+                        <th scope="col">Caption</th>
+                        <th scope="col">Amount in Controversy</th>
+                         <th scope="col">Plaintiff</th>
+                         <th scope="col">Defendant</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+          
+                {{#each cases}}
+                
+                <tbody>
+                    <tr id="caseRow">
+                        <th scope="row" id="case-number">{{caseNumber}}</th>
+                        <td id="caption"> {{Plaintiff.LName}} vs. {{Defendant.LName}}</td>
+                        <td id="amount-in-controversy">{{amntCntrvsy}}</td>
+                       
+                        <td id="plaintiff-cell">
+                            {{Plaintiff.LName}}, {{Plaintiff.FName}}</td>
+                            <td id="defendant-cell">
+                            {{Defendant.LName}}, {{Defendant.FName}}</td>
+                        {{!-- create show details button . important to use the @index for the data target --}}
+                        <td class="ml-5" id="Details" data-id="{{id}}">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal{{@index}}">Show Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+<!-- Modal Code NEED TO INCLUDE THE @inxes in the id, in order to target the correct element from the list-->
+<div class="modal fade" id="Modal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Case Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+<ul class="list-group">         
+  <li class="list-group-item"><p><b>PLAINTIFF:</b>  {{this.Plaintiff.LName}}, {{this.Plaintiff.FName}}</p></li>
+  <li class="list-group-item"><p><b>PLAINTIFF ANTORNEY:</b>  {{this.PlaintiffAttorney.LName}}, {{this.PlaintiffAttorney.FName}}</p><span class="badge badge-secondary">Bar # ({{this.PlaintiffAttorney.barNumber}})</span> </li>
+  <li class="list-group-item"><p><b>DEFENDANT:</b>  {{this.Defendant.LName}}, {{this.Defendant.FName}}</p></li>
+  <li class="list-group-item"><p><b>DEFENSE ATTORNEY:</b> {{this.DefenseAttorney.def_attorneyLName}}, {{DefenseAttorney.def_attorneyFName}}</p><span class="badge badge-secondary">Bar # ({{this.DefenseAttorney.barNumber}})</span>  </li>
+  <li class="list-group-item"><p><b>CONTROVERSY:</b> {{ amntCntrvsy }}</li>
+</ul>
+   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+
+
+
+
+</section>

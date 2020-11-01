@@ -1,4 +1,4 @@
-const updateBtn = $(".btn");
+// const updateBtn = $(".btn");
 const updateModal = $("#update-modal");
 const updateCaseNumberField = $("#update-case-number");
 const updateCaptionField = $("#update-caption");
@@ -13,7 +13,7 @@ const updateDAttyLNameField = $("#update-dAttorney-lName");
 const updateAmountField = $("#update-amount-in-controversy");
 
 
-updateBtn.on("click", function (event) {
+updateBtn.on("click", function(event) {
     event.preventDefault();
     const caseID = $(this).parent().data("id");
     $.ajax({

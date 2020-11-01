@@ -39,7 +39,9 @@ module.exports = function(app) {
 
     app.get("/docketmaster", async(req, res) => {
         const divisions = await db.Division.findAll({});
-        const cases = await db.Case.findAll({});
+        const cases = await db.Case.findAll({
+            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        });
         res.render("docketmaster", {
             divisions,
             cases
