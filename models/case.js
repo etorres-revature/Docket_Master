@@ -13,21 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             caption: {
                 type: DataTypes.STRING,
             },
-
-
-            // Plaintiff: {
-            //     type: DataTypes.INTEGER,
-            // },
-            // pAttorney: {
-            //     type: DataTypes.INTEGER,
-            // },
-            // Defendant: {
-            //     type: DataTypes.INTEGER,
-            // },
-            // dAttorney: {
-            //     type: DataTypes.INTEGER,
-            // },
-
             amntCntrvsy: {
                 type: DataTypes.INTEGER,
             },
@@ -36,27 +21,27 @@ module.exports = (sequelize, DataTypes) => {
 
     Case.associate = (db) => {
         Case.belongsTo(db.Division, {
-            foreignKey: "DivisionId",
+            // foreignKey: "DivisionId",
         });
 
         Case.belongsTo(db.Plaintiff, {
-            // foreignKey: "PlaintiffId",
+            // foreignKey: "Plaintiffid",
         });
 
         Case.belongsTo(db.Defendant, {
-            // foreignKey: "DefendantId",
+            // foreignKey: "Defendantid",
         });
 
         Case.belongsTo(db.DefenseAttorney, {
-            // foreignKey: "Defense_attorneyId",
+            // foreignKey: "DefenseAttorneyid",
         });
 
         Case.belongsTo(db.PlaintiffAttorney, {
-            // foreignKey: "Plaintiff_attorneyId",
+            //     foreignKey: "PlaintiffAttorneyid",
         });
 
         Case.belongsTo(db.Type, {
-            foreignKey: "TypeId",
+            // foreignKey: "TypeId",
         });
     };
 

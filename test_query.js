@@ -1,3 +1,4 @@
+require("dotenv").config();
 const db = require('./models');
 const Case = db.Case;
 const Defendant = db.Defendant;
@@ -9,7 +10,7 @@ const Type = db.Type;
 
 
 // Case.findAll({
-//     // where: { id: 4 },
+//    
 //     include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
 // }).then((results) => {
 //     console.log(results)

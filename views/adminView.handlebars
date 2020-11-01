@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-header">
+        Plaintiffs
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each plaintiffs}}
+            {{> tableViews/plaintiff-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Defendants
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each defendants}}
+            {{> tableViews/defendant-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Plaintiff Attorneys
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each pAttys}}
+            {{> tableViews/pAtty-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Defendant Attorneys
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each dAttys}}
+            {{> tableViews/dAtty-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Divisions
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each divisions}}
+            {{> tableViews/division-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Types
+    </div>
+    <div class="card-body">
+        <ol>
+            {{#each types}}
+            {{> tableViews/type-block}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
