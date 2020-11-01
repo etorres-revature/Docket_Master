@@ -54,7 +54,7 @@ module.exports = function (app) {
     res.render("add.handlebars");
   })
 
-  app.get("/docketmaster/admin/types", async (req, res) => {
+  app.get("/docketmaster/admin/views", async (req, res) => {
     const plaintiffs = await db.Plaintiff.findAll({})
     const types = await db.Type.findAll({});
     res.render("adminView.handlebars", {
