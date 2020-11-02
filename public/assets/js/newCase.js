@@ -3,31 +3,6 @@ $(document).ready(function() {
     // THIS SECTION  IS FOR PERFORMING THE AUTO COMPLETE FOR THE INPUT FIELDS
 
     // DEFENDANTS:  function to query the database for all defendants and filter the results as they are typed in the field
-    // let defendantResults = async function(searchText) {
-    //     //use fetch to get the data back from the api
-    //     const res = await fetch('/api/defendants');
-    //     const defendants = await res.json();
-    //     let fullNames = [];
-    //     defendants.forEach(item => {
-    //         let name = `${item.FName} ${item.LName}`;
-    //         fullNames.push(name);
-    //     });
-
-    //     let matches = fullNames.filter(fullname => {
-    //         const regex = new RegExp(`${searchText}`, 'gi');
-    //         return fullname.match(regex);
-    //     })
-    //     if (searchText.length === 0) {
-    //         matches = []
-    //         $('#defendant-match-list').html(html);
-    //     }
-
-    //     // console.log(matches);
-    //     outputHTML(matches, '#defendant-match-list');
-
-
-    // }
-
     let defendantResults = async function(searchText) {
         //use fetch to get the data back from the api
         const res = await fetch('/api/defendants');
@@ -49,8 +24,6 @@ $(document).ready(function() {
             matches = []
             $('#defendant-match-list').html(html);
         }
-
-        // console.log(matches);
         outputHTML(matches, '#defendant-match-list');
 
 
@@ -78,8 +51,6 @@ $(document).ready(function() {
             matches = []
             $('#plaintiff-match-list').html(html);
         }
-
-        // console.log(matches);
         outputHTML(matches, '#plaintiff-match-list');
 
 
@@ -107,8 +78,6 @@ $(document).ready(function() {
             matches = []
             $('#pAttorney-match-list').html(html);
         }
-
-        // console.log(matches);
         outputHTML(matches, '#pAttorney-match-list');
 
     }
@@ -136,25 +105,77 @@ $(document).ready(function() {
             matches = []
             $('#dAttorney-match-list').html(html);
         }
-
-        // console.log(matches);
         outputHTML(matches, '#dAttorney-match-list');
 
     }
 
+    //  TYPES: 
+
+    let typeResults = async function(searchText) {
+        //use fetch to get the data back from the api
+
+        const res = await fetch('/api/types');
+        const types = await res.json();
+        let fullNames = [];
+        types.forEach(item => {
+            let name = {
+                id: item.id,
+                name: `${item.Field}`
+            }
+            fullNames.push(name);
+        });
+
+        let matches = fullNames.filter(fullname => {
+            const regex = new RegExp(`${searchText}`, 'gi');
+            return fullname.name.match(regex);
+        })
+        if (searchText.length === 0) {
+            matches = []
+            $('#case-type-match-list').html(html);
+        }
+        outputHTML(matches, '#case-type-match-list');
+
+    }
 
 
+    let divisionResults = async function(searchText) {
+        //use fetch to get the data back from the api
+
+        const res = await fetch('/api/divisions');
+        const divisions = await res.json();
+        let fullNames = [];
+
+        divisions.forEach(item => {
+            let name = {
+                id: item.id,
+                name: `${item.division}`
+            }
+            fullNames.push(name);
+        });
+
+        let matches = fullNames.filter(fullname => {
+            const regex = new RegExp(`${searchText}`, 'gi');
+            // console.log(fullname.name.match(regex));
+            return fullname.name.match(regex);
+        })
+        if (searchText.length === 0) {
+            matches = []
+            $('#division-match-list').html(html);
+        }
+        outputHTML(matches, '#division-match-list');
+
+    }
 
     // Output html function for auto complete as user is typing 
     const outputHTML = function(matches, htmlTarget) {
             if (matches.length > 0) {
                 const html = matches.map(
-                    // match => `<span><p>${match.name}</p></span>`
-                    match => `<option value='${match.name}'>`
+
+                    match => `<option value='ID: ${match.id} (${match.name})'>`
                 ).join('');
-                console.log(html);
+
                 $(htmlTarget).html(html);
-                $('#defendant-name').data(`${match.id}`)
+
 
             }
         }
@@ -163,14 +184,22 @@ $(document).ready(function() {
     $('#plaintiff-name').on('input', () => plaintiffResults($('#plaintiff-name').val()));
     $('#pAttorney-name').on('input', () => pAttorneyResults($('#pAttorney-name').val()));
     $('#dAttorney-name').on('input', () => dAttorneyResults($('#dAttorney-name').val()));
+    $('#case-type').on('input', () => typeResults($('#case-type').val()));
+    $('#divison-name').on('input', () => divisionResults($('#divison-name').val()));
 
     // event listerns for when focus is removed from the fiels. will clean up and revmoew and of the autocomplete windows. 
     $('#defendant-name').on('blur', () => { $('#defendant-match-list').html('') });
     $('#plaintiff-name').on('blur', () => { $('#plaintiff-match-list').html('') });
     $('#pAttorney-name').on('blur', () => { $('#pAttorney-match-list').html('') });
     $('#dAttorney-name').on('blur', () => { $('#dAttorney-match-list').html('') });
+    $('#case-type').on('blur', () => { $('#case-type-match-list').html('') });
+    $('#division-name').on('blur', () => { $('#division-match-list').html('') });
 
 
+    function getIdFromString(string) {
+        let idArray = string.split(" ");
+        return idArray[1];
+    }
 
     // event listener for the form submission 
     $("#add-new-case").on("click", (e) => {
@@ -178,22 +207,23 @@ $(document).ready(function() {
         e.preventDefault();
         const caseNum = $("#update-case-number").val();
         const caption = $("#update-caption").val();
-        const plaintFName = $("#update-plaintiff-fName").val();
-        const pAttyFName = $("#update-pAttorney-fName").val();
-        const pAttyLName = $("#update-pAttorney-lName").val();
-        const defFName = $("#update-defendant-fName").val();
-        const defLName = $("#update-defendant-lName").val();
-        const dAttyFname = $("#update-dAttorney-fName").val();
-        const dAttyLname = $("#update-dAttorney-lName").val();
+        const plaintName = $("#plaintiff-name").val();
+        const pAttyName = $("#pAttorney-name").val();
+        const defName = $("#defendant-name").val();
+        const dAttyName = $("#dAttorney-name").val();
+        const divsionsName = $('#divison-name').val();
+        const caseType = $('#case-type').val();
         const amntCntrvsy = $("#update-amount-in-controversy").val();
 
         const newCase = {
             caseNumber: caseNum,
-            caption: caption,
-            PlaintiffId: plaintFName,
-            PlaintiffAttorneyId: pAttyFName,
-            DefendantId: defFName,
-            DefenseAttorneyId: dAttyFname,
+            caption: "xxx vs xxx",
+            PlaintiffId: getIdFromString(plaintName),
+            PlaintiffAttorneyId: getIdFromString(pAttyName),
+            DefendantId: getIdFromString(defName),
+            DefenseAttorneyId: getIdFromString(dAttyName),
+            DivisionId: getIdFromString(divsionsName),
+            TypeId: getIdFromString(caseType),
             amntCntrvsy: amntCntrvsy,
         };
 
