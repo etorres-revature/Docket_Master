@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
-    // const matchList = document.getElementById('defendant-match-list');
-
-    console.log('in the addCase js file');
+    // THIS SECTION  IS FOR PERFORMING THE AUTO COMPLETE FOR THE INPUT FIELDS
 
     // DEFENDANTS:  function to query the database for all defendants and filter the results as they are typed in the field
     let defendantResults = async function(searchText) {
@@ -110,7 +108,7 @@ $(document).ready(function() {
 
 
 
-
+    // Output html function for auto complete as user is typing 
     const outputHTML = function(matches, htmlTarget) {
             if (matches.length > 0) {
                 const html = matches.map(
@@ -121,12 +119,13 @@ $(document).ready(function() {
 
             }
         }
-        //   event listener for defendant name input field 
+        //   add all the event listers for the input fields
     $('#defendant-name').on('input', () => defendantResults($('#defendant-name').val()));
     $('#plaintiff-name').on('input', () => plaintiffResults($('#plaintiff-name').val()));
     $('#pAttorney-name').on('input', () => pAttorneyResults($('#pAttorney-name').val()));
     $('#dAttorney-name').on('input', () => dAttorneyResults($('#dAttorney-name').val()));
 
+    // event listerns for when focus is removed from the fiels. will clean up and revmoew and of the autocomplete windows. 
     $('#defendant-name').on('blur', () => { $('#defendant-match-list').html('') });
     $('#plaintiff-name').on('blur', () => { $('#plaintiff-match-list').html('') });
     $('#pAttorney-name').on('blur', () => { $('#pAttorney-match-list').html('') });
@@ -134,7 +133,7 @@ $(document).ready(function() {
 
 
 
-    // event listener for form submission 
+    // event listener for the form submission 
     $("#add-new-case").on("click", (e) => {
         console.log("---------------->>>>>>>>>>>>>>>submit button pressed");
         e.preventDefault();
