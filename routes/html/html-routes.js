@@ -51,7 +51,6 @@ module.exports = function(app) {
       divisions,
       cases,
     });
-  });
 
   app.get("/docketmaster/add", function (req, res) {
     res.render("add.handlebars");
