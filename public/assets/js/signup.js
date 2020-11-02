@@ -8,9 +8,6 @@ $(document).ready(function () {
   signUpForm.on("submit", function (e) {
     e.preventDefault();
 
-    console.log("In signup form:");
-    console.log("emailInput:", emailInput);
-    console.log("passwordInput:", passwordInput);
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),

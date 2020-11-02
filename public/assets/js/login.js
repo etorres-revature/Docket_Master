@@ -29,7 +29,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        window.location.replace("/members");
+        window.location.replace("/docketmaster");
         // If there's an error, log the error
       })
       .catch(function(err) {
