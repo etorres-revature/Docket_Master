@@ -4,7 +4,7 @@ const express = require("express");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const {
-    allowInsecurePrototypeAccess,
+  allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const session = require("express-session");
 const caseController = require("./routes/api/case");
@@ -42,28 +42,31 @@ app.use(type);
 // Set Handlebars
 // Note that there is new handlebars feature that bugs with sequelize unless the "allowInsecurePrototypeAccess" workaround is used
 app.engine(
-    "handlebars",
-    exphbs({ handlebars: allowInsecurePrototypeAccess(Handlebars) }, { defaultLayout: "main" })
+  "handlebars",
+  exphbs(
+    { handlebars: allowInsecurePrototypeAccess(Handlebars) },
+    { defaultLayout: "main" }
+  )
 );
 app.set("view engine", "handlebars");
 
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring our routes
+// Requiring our passport routes
 require("./routes/html/html-routes.js")(app);
 require("./routes/api/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 // Set force back to true to drop and recreate all tables on server startup
-db.sequelize.sync({ force: false }).then(function() {
-    app.listen(PORT, function() {
-        console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
-    });
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log(
+      `==> 🌎  Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`
+    );
+  });
 });

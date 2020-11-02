@@ -37,7 +37,7 @@ module.exports = function(app) {
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     // Note that we are using async / await to populate data (divisions and cases) on the main docket master page 
 
-    app.get("/docketmaster", async(req, res) => {
+    app.get("/docketmaster", isAuthenticated, async (req, res) => {
         const divisions = await db.Division.findAll({});
         const cases = await db.Case.findAll({
             include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
