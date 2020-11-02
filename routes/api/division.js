@@ -16,7 +16,7 @@ const db = require("../../models");
 //@desc         Get all divisions
 //@access       Public
 router.get("/api/divisions", (req, res) => {
-  console.log("division api running")
+  console.log("division api running");
   db.Division.findAll({}).then((divisions) => {
     res.json(divisions);
   });
