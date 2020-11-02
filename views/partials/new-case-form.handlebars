@@ -11,9 +11,9 @@
                         <label for="update-plaintiff-name" class="col-form-label">Plaintiff Name</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="plaintiff-name">
+                                <input list="plaintiff-match-list" class="form-control" id="plaintiff-name">
                                 <small class="form-text text-muted">Full Name</small>
-                                <div id="plaintiff-match-list"></div>
+                                <datalist id="plaintiff-match-list"></datalist>
                             </div>
                             {{!-- <div class="col">
                                 <input type="text" class="form-control" id="update-plaintiff-lName">
@@ -26,9 +26,9 @@
                             Name</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="pAttorney-name">
+                                <input list="pAttorney-match-list" class="form-control" id="pAttorney-name">
                                 <small class="form-text text-muted">Full Name</small>
-                                 <div id="pAttorney-match-list"></div>
+                                 <datalist id="pAttorney-match-list"></datalist>
                             </div>
                             {{!-- <div class="col">
                                 <input type="text" class="form-control" id="update-pAttorney-lName">
@@ -39,10 +39,15 @@
                     <div class="form-group">
                         <label for="update-defendant-name" class="col-form-label">Defendant Name</label>
                         <div class="row">
-                            <div class="col">
+                            {{!-- <div class="col">
                                 <input type="text" class="form-control" id="defendant-name">
                                 <small class="form-text text-muted">Full Name</small>
-                                <div id="defendant-match-list"></div>
+                                <datalist id="defendant-match-list"></datalist>
+                            </div> --}}
+                             <div class="col">
+                                <input list="defendant-match-list" class="form-control" id="defendant-name">
+                                <small class="form-text text-muted">Full Name</small>
+                                <datalist id="defendant-match-list"></datalist>
                             </div>
                             
                             {{!-- <div class="col">
@@ -56,9 +61,9 @@
                             Name</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="dAttorney-name">
+                                <input list="dAttorney-match-list" class="form-control" id="dAttorney-name">
                                 <small class="form-text text-muted">Full Name</small>
-                                 <div id="dAttorney-match-list"></div>
+                                 <datalist id="dAttorney-match-list"></datalist>
                             </div>
                             {{!-- <div class="col">
                                 <input type="text" class="form-control" id="update-dAttorney-lName">

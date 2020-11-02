@@ -3,19 +3,47 @@ $(document).ready(function() {
     // THIS SECTION  IS FOR PERFORMING THE AUTO COMPLETE FOR THE INPUT FIELDS
 
     // DEFENDANTS:  function to query the database for all defendants and filter the results as they are typed in the field
+    // let defendantResults = async function(searchText) {
+    //     //use fetch to get the data back from the api
+    //     const res = await fetch('/api/defendants');
+    //     const defendants = await res.json();
+    //     let fullNames = [];
+    //     defendants.forEach(item => {
+    //         let name = `${item.FName} ${item.LName}`;
+    //         fullNames.push(name);
+    //     });
+
+    //     let matches = fullNames.filter(fullname => {
+    //         const regex = new RegExp(`${searchText}`, 'gi');
+    //         return fullname.match(regex);
+    //     })
+    //     if (searchText.length === 0) {
+    //         matches = []
+    //         $('#defendant-match-list').html(html);
+    //     }
+
+    //     // console.log(matches);
+    //     outputHTML(matches, '#defendant-match-list');
+
+
+    // }
+
     let defendantResults = async function(searchText) {
         //use fetch to get the data back from the api
         const res = await fetch('/api/defendants');
         const defendants = await res.json();
         let fullNames = [];
         defendants.forEach(item => {
-            let name = `${item.FName} ${item.LName}`;
+            let name = {
+                id: item.id,
+                name: `${item.FName} ${item.LName}`
+            }
             fullNames.push(name);
         });
 
         let matches = fullNames.filter(fullname => {
             const regex = new RegExp(`${searchText}`, 'gi');
-            return fullname.match(regex);
+            return fullname.name.match(regex);
         })
         if (searchText.length === 0) {
             matches = []
@@ -32,16 +60,19 @@ $(document).ready(function() {
     let plaintiffResults = async function(searchText) {
         //use fetch to get the data back from the api
         const res = await fetch('/api/plaintiffs');
-        const defendants = await res.json();
+        const plaintiffs = await res.json();
         let fullNames = [];
-        defendants.forEach(item => {
-            let name = `${item.FName} ${item.LName}`;
+        plaintiffs.forEach(item => {
+            let name = {
+                id: item.id,
+                name: `${item.FName} ${item.LName}`
+            }
             fullNames.push(name);
         });
 
         let matches = fullNames.filter(fullname => {
             const regex = new RegExp(`${searchText}`, 'gi');
-            return fullname.match(regex);
+            return fullname.name.match(regex);
         })
         if (searchText.length === 0) {
             matches = []
@@ -58,16 +89,19 @@ $(document).ready(function() {
     let pAttorneyResults = async function(searchText) {
         //use fetch to get the data back from the api
         const res = await fetch('/api/plaintiff_attorneys');
-        const defendants = await res.json();
+        const pAttorney = await res.json();
         let fullNames = [];
-        defendants.forEach(item => {
-            let name = `${item.FName} ${item.LName}`;
+        pAttorney.forEach(item => {
+            let name = {
+                id: item.id,
+                name: `${item.FName} ${item.LName}`
+            }
             fullNames.push(name);
         });
 
         let matches = fullNames.filter(fullname => {
             const regex = new RegExp(`${searchText}`, 'gi');
-            return fullname.match(regex);
+            return fullname.name.match(regex);
         })
         if (searchText.length === 0) {
             matches = []
@@ -84,16 +118,19 @@ $(document).ready(function() {
     let dAttorneyResults = async function(searchText) {
         //use fetch to get the data back from the api
         const res = await fetch('/api/defense_attorneys');
-        const defendants = await res.json();
+        const dAttorney = await res.json();
         let fullNames = [];
-        defendants.forEach(item => {
-            let name = `${item.def_attorneyFName} ${item.def_attorneyLName}`;
+        dAttorney.forEach(item => {
+            let name = {
+                id: item.id,
+                name: `${item.def_attorneyFName} ${item.def_attorneyLName}`
+            }
             fullNames.push(name);
         });
 
         let matches = fullNames.filter(fullname => {
             const regex = new RegExp(`${searchText}`, 'gi');
-            return fullname.match(regex);
+            return fullname.name.match(regex);
         })
         if (searchText.length === 0) {
             matches = []
@@ -112,10 +149,12 @@ $(document).ready(function() {
     const outputHTML = function(matches, htmlTarget) {
             if (matches.length > 0) {
                 const html = matches.map(
-                    match => `<span><p>${match}</p></span>`
+                    // match => `<span><p>${match.name}</p></span>`
+                    match => `<option value='${match.name}'>`
                 ).join('');
                 console.log(html);
                 $(htmlTarget).html(html);
+                $('#defendant-name').data(`${match.id}`)
 
             }
         }
