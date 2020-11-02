@@ -47,47 +47,62 @@ module.exports = function(app) {
             cases
         });
     });
-
-
-    app.get("/docketmaster/add", function(req, res) {
-        res.render("add.handlebars");
+    res.render("docketmaster", {
+      divisions,
+      cases,
     });
 
+  app.get("/docketmaster/add", function (req, res) {
+    res.render("add.handlebars");
+  });
 
-    app.get("/docketmaster/admin/create", (req, res) => {
-        res.render("adminCreate.handlebars");
+  app.get("/docketmaster/admin/create", (req, res) => {
+    res.render("adminCreate.handlebars");
+  });
+
+  app.get("/docketmaster/view", async (req, res) => {
+    const cases = await db.Case.findAll({
+      include: [
+        db.Type,
+        db.Division,
+        db.Plaintiff,
+        db.PlaintiffAttorney,
+        db.Defendant,
+        db.DefenseAttorney,
+      ],
     });
 
-    app.get("/docketmaster/view", async(req, res) => {
+    res.render("view.handlebars", { cases });
+  });
 
-        const cases = await db.Case.findAll({
-            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
-        });
-
-        res.render("view.handlebars", { cases });
+  app.get("/docketmaster/add", async (req, res) => {
+    const cases = await db.Case.findAll({
+      include: [
+        db.Type,
+        db.Division,
+        db.Plaintiff,
+        db.PlaintiffAttorney,
+        db.Defendant,
+        db.DefenseAttorney,
+      ],
     });
+    res.render("add.handlebars", { cases });
+  });
 
-    app.get("/docketmaster/add", async(req, res) => {
-        const cases = await db.Case.findAll({
-            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
-        });
-        res.render("add.handlebars", { cases });
-    })
-
-    app.get("/docketmaster/admin/view", async(req, res) => {
-        const plaintiffs = await db.Plaintiff.findAll({});
-        const defendants = await db.Defendant.findAll({});
-        const pAttys = await db.PlaintiffAttorney.findAll({});
-        const dAttys = await db.DefenseAttorney.findAll({});
-        const divisions = await db.Division.findAll({});
-        const types = await db.Type.findAll({});
-        res.render("adminView.handlebars", {
-            plaintiffs,
-            defendants,
-            pAttys,
-            dAttys,
-            divisions,
-            types,
-        });
+  app.get("/docketmaster/admin/view", async (req, res) => {
+    const plaintiffs = await db.Plaintiff.findAll({});
+    const defendants = await db.Defendant.findAll({});
+    const pAttys = await db.PlaintiffAttorney.findAll({});
+    const dAttys = await db.DefenseAttorney.findAll({});
+    const divisions = await db.Division.findAll({});
+    const types = await db.Type.findAll({});
+    res.render("adminView.handlebars", {
+      plaintiffs,
+      defendants,
+      pAttys,
+      dAttys,
+      divisions,
+      types,
     });
+  });
 };

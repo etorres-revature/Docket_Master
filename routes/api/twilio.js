@@ -1,18 +1,40 @@
-const http = require("http");
 const express = require("express");
-const MessagingResponse = require("twilio/lib/twiml/MessagingResponse");
 const router = express.Router();
+const db = require("../../models");
 
-router.post("/sms", (req, res) => {
-  const twiml = new MessagingResponse();
+require("dotenv").config();
+const accountSid = process.env.TWI_ACCNTSID;
+const authToken = process.env.TWI_AUTHTOKEN;
+const client = require("twilio")(accountSid, authToken);
 
-  twiml.message(
-    "Thanks for your reply.  A Docket Master representative will review this information and be in touch with you shortly."
-  );
+const sendSMSMsg = (message) => {
+  client.messages
+    .create({
+      body: message,
+      from: process.env.FROM_NUM,
+      to: process.env.TO_NUM,
+    })
+    .then((message) => console.log(message));
+};
 
-  res.writeHead(200, { "Content-Type": "text/xml" });
+router.get("/sms", async (req, res) => {
+  const msg =
+    "Hello from Docket Master.  Please check in as you have a case that needs attention.";
 
-  res.end(twiml.toString());
+  await sendSMSMsg(msg);
+
+  await db.findAll({
+    include: [
+      db.Type,
+      db.Division,
+      db.Plaintiff,
+      db.PlaintiffAttorney,
+      db.Defendant,
+      db.DefenseAttorney,
+    ],
+  });
+
+  res.reload("/docketmaster/view");
 });
 
 module.exports = router;
