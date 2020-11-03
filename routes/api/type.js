@@ -5,7 +5,7 @@ const db = require("../../models");
 
 //@route        GET /api/types
 //@desc         Get all case types
-//@access       Public
+//@access       Private
 router.get("/api/types", (req, res) => {
   db.Type.findAll({}).then((types) => {
     res.json(types);
@@ -14,7 +14,7 @@ router.get("/api/types", (req, res) => {
 
 //@route        GET /api/types/:id
 //@desc         Get case type
-//@access       Public
+//@access       Private
 router.get("/api/types/:id", (req, res) => {
   const { id } = req.params;
   db.Type.findOne({
@@ -28,7 +28,7 @@ router.get("/api/types/:id", (req, res) => {
 
 //@route        POST /api/types
 //@desc         Create new case type
-//@access       Public
+//@access       Private
 router.post("/api/types", (req, res) => {
   db.Type.create(req.body).then((newType) => {
     res.status(201).json(newType);
@@ -37,7 +37,7 @@ router.post("/api/types", (req, res) => {
 
 //@route        PUT /api/types/:id
 //@desc         Update type
-//@access       Public
+//@access       Private
 router.put("/api/types/:id", (req, res) => {
   const { id } = req.params;
   db.Type.update({
@@ -51,7 +51,7 @@ router.put("/api/types/:id", (req, res) => {
 
 //@route        DELETE /api/types/:id
 //@desc         Delete type
-//@access       Public
+//@access       Private
 router.delete("/api/types/:id", (req, res) => {
   const { id } = req.params;
   db.Type.destroy({

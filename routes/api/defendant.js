@@ -5,7 +5,7 @@ const db = require("../../models");
 
 //@route        GET /api/defendants
 //@desc         Get all defendants
-//@access       Public
+//@access       Private
 router.get("/api/defendants", (req, res) => {
   db.Defendant.findAll({}).then((defendants) => {
     res.json(defendants);
@@ -14,7 +14,7 @@ router.get("/api/defendants", (req, res) => {
 
 //@route        GET /api/defendants/:id
 //@desc         Get defendants
-//@access       Public
+//@access       Private
 router.get("/api/defendants/:id", (req, res) => {
   const { id } = req.params;
   db.Defendant.findOne({
@@ -28,7 +28,7 @@ router.get("/api/defendants/:id", (req, res) => {
 
 //@route        POST /api/defendants
 //@desc         Create new defendants
-//@access       Public
+//@access       Private
 router.post("/api/defendants", (req, res) => {
   db.Defendant.create(req.body).then((newDefendant) => {
     res.status(201).json(newDefendant);
@@ -37,7 +37,7 @@ router.post("/api/defendants", (req, res) => {
 
 //@route        PUT /api/defendants/:id
 //@desc         Update defendants
-//@access       Public
+//@access       Private
 router.put("/api/defendants/:id", (req, res) => {
   const { id } = req.params;
   db.Defendant.update({
@@ -51,7 +51,7 @@ router.put("/api/defendants/:id", (req, res) => {
 
 //@route        DELETE /api/defendant/:id
 //@desc         Delete defendant
-//@access       Public
+//@access       Private
 router.delete("/api/defendants/:id", (req, res) => {
   const { id } = req.params;
   db.Defendant.destroy({
