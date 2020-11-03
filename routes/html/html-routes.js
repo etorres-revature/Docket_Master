@@ -18,8 +18,8 @@ module.exports = function(app) {
         // res.sendFile(path.join(__dirname, "../public/signup.html"));
 
         // Insert route to handlebars instead of /public/signup.html
-        // res.render("signup.handlebars");
-        res.redirect("/docketmaster");
+        res.render("signup.handlebars");
+
     });
 
     app.get("/login", function(req, res) {
@@ -49,9 +49,12 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/docketmaster/add", function(req, res) {
-        res.render("add.handlebars");
-    });
+    app.get("/docketmaster/add", async(req, res) => {
+        const cases = await db.Case.findAll({
+            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        });
+        res.render("create-case.handlebars", { cases });
+    })
 
     app.get("/docketmaster/admin/create", (req, res) => {
         res.render("adminCreate.handlebars");
