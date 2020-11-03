@@ -1,49 +1,35 @@
-const division = require("./division");
-
+//creating a Sequelize model for cases table
 module.exports = (sequelize, DataTypes) => {
-    const Case = sequelize.define(
-        "Case", {
-            caseNumber: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    len: [1],
-                },
-            },
-            caption: {
-                type: DataTypes.STRING,
-            },
-            amntCntrvsy: {
-                type: DataTypes.INTEGER,
-            },
-        });
+  const Case = sequelize.define("Case", {
+    caseNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    caption: {
+      type: DataTypes.STRING,
+    },
+    amntCntrvsy: {
+      type: DataTypes.INTEGER,
+    },
+  });
 
+  //creating Sequelize associations for the Case model
+  Case.associate = (db) => {
+    Case.belongsTo(db.Division, {});
 
-    Case.associate = (db) => {
-        Case.belongsTo(db.Division, {
-            // foreignKey: "DivisionId",
-        });
+    Case.belongsTo(db.Plaintiff, {});
 
-        Case.belongsTo(db.Plaintiff, {
-            // foreignKey: "Plaintiffid",
-        });
+    Case.belongsTo(db.Defendant, {});
 
-        Case.belongsTo(db.Defendant, {
-            // foreignKey: "Defendantid",
-        });
+    Case.belongsTo(db.DefenseAttorney, {});
 
-        Case.belongsTo(db.DefenseAttorney, {
-            // foreignKey: "DefenseAttorneyid",
-        });
+    Case.belongsTo(db.PlaintiffAttorney, {});
 
-        Case.belongsTo(db.PlaintiffAttorney, {
-            //     foreignKey: "PlaintiffAttorneyid",
-        });
+    Case.belongsTo(db.Type, {});
+  };
 
-        Case.belongsTo(db.Type, {
-            // foreignKey: "TypeId",
-        });
-    };
-
-    return Case;
+  return Case;
 };

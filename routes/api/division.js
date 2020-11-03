@@ -3,18 +3,9 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
-// This doesn't work because we already have a get route for /members in case.js
-// router.get("/members", (req, res) => {
-//   db.Division.findAll({}).then((divisions) => {
-//     res.render("members", {
-//       divisions
-//     });
-//   });
-// });
-
 //@route        GET /api/divisions
 //@desc         Get all divisions
-//@access       Public
+//@access       Private
 router.get("/api/divisions", (req, res) => {
   console.log("division api running");
   db.Division.findAll({}).then((divisions) => {
@@ -24,7 +15,7 @@ router.get("/api/divisions", (req, res) => {
 
 //@route        GET /api/divisions/:id
 //@desc         Get division
-//@access       Public
+//@access       Private
 router.get("/api/divisions/:id", (req, res) => {
   const { id } = req.params;
   db.Division.findOne({
@@ -38,7 +29,7 @@ router.get("/api/divisions/:id", (req, res) => {
 
 //@route        POST /api/divisions
 //@desc         Create new division
-//@access       Public
+//@access       Private
 router.post("/api/divisions", (req, res) => {
   db.Division.create(req.body).then((newDiv) => {
     res.status(201).json(newDiv);
@@ -47,7 +38,7 @@ router.post("/api/divisions", (req, res) => {
 
 //@route        PUT /api/divisions/:id
 //@desc         Update division
-//@access       Public
+//@access       Private
 router.put("/api/divisions/:id", (req, res) => {
   const { id } = req.params;
   db.Division.update({
@@ -61,7 +52,7 @@ router.put("/api/divisions/:id", (req, res) => {
 
 //@route        DELETE /api/division/:id
 //@desc         Delete division
-//@access       Public
+//@access       Private
 router.delete("/api/divisions/:id", (req, res) => {
   const { id } = req.params;
   db.Division.destroy({

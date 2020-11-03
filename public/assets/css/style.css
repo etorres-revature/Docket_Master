@@ -1,6 +1,7 @@
 body {
   font-size: 0.875rem;
   background: url("../img/justitia-2597016_1280.jpg") no-repeat fixed center;
+  background-size: cover;
 }
 
 .feather {
@@ -9,9 +10,7 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
+/* Sidebar */
 
 .sidebar {
   position: fixed;
@@ -74,9 +73,7 @@ body {
   bottom: 0;
 }
 
-/*
- * Navbar
- */
+/* Navbar */
 
 .navbar-brand {
   padding-top: 0.75rem;
@@ -128,6 +125,7 @@ small.subtext {
 
 div.form {
   background-color: palegoldenrod;
+  width: 45%;
 }
 
 /* results table */

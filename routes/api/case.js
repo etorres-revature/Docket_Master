@@ -3,18 +3,9 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../models");
 
-// Route to populate all cases on /members
-// router.get("/members", (req, res) => {
-//   db.Case.findAll({}).then((cases) => {
-//     res.render("members", {
-//       cases
-//     });
-//   });
-// });
-
 //@route        GET /api/cases
 //@desc         Get all cases
-//@access       Public
+//@access       Private
 router.get("/api/cases/", (req, res) => {
   db.Case.findAll({
     include: [
@@ -35,15 +26,10 @@ router.get("/api/cases/", (req, res) => {
 
 //@route        GET /api/cases/:id
 //@desc         Get case
-//@access       Public
+//@access       Private
 router.get("/api/cases/:id", (req, res) => {
   const { id } = req.params;
   db.Case.findOne({
-    // where: {
-    //   id,
-    // },
-    // include: [db.Type, db.Division, "Attorneyp", "Attorneyd", "plaint", "def"],
-
     where: { id },
     include: [
       db.Type,
@@ -62,11 +48,20 @@ router.get("/api/cases/:id", (req, res) => {
 });
 
 // Add search routing to the get case routers
-
+//@route        GET /search/caseumber
+//@desc         Get cases by case number
+//@access       Private
 router.get("/search/casenumber", (req, res) => {
   let { caseNumber } = req.query;
   db.Case.findAll({
-    include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
+    include: [
+      db.Type,
+      db.Division,
+      db.Plaintiff,
+      db.PlaintiffAttorney,
+      db.Defendant,
+      db.DefenseAttorney,
+    ],
     where: {
       caseNumber,
     },
@@ -76,7 +71,7 @@ router.get("/search/casenumber", (req, res) => {
       const divisions = await db.Division.findAll({});
       res.render("docketmaster", {
         divisions,
-        cases
+        cases,
       });
     })
     .catch((err) => {
@@ -85,20 +80,29 @@ router.get("/search/casenumber", (req, res) => {
     });
 });
 
+//@route        GET /search/plaintiff
+//@desc         Get cases by Plaintiff
+//@access       Private
 router.get("/search/plaintiff", (req, res) => {
   let { pLName } = req.query;
   db.Plaintiff.findOne({
     where: {
       LName: pLName,
     },
-    // include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
   })
     .then((results) => {
       db.Case.findOne({
         where: {
           PlaintiffId: results.dataValues.id,
         },
-        include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        include: [
+          db.Type,
+          db.Division,
+          db.Plaintiff,
+          db.PlaintiffAttorney,
+          db.Defendant,
+          db.DefenseAttorney,
+        ],
       })
         .then(async (caseResults) => {
           const cases = [caseResults];
@@ -106,7 +110,7 @@ router.get("/search/plaintiff", (req, res) => {
           const divisions = await db.Division.findAll({});
           res.render("docketmaster", {
             divisions,
-            cases
+            cases,
           });
         })
         .catch((err) => {
@@ -118,20 +122,29 @@ router.get("/search/plaintiff", (req, res) => {
     });
 });
 
+//@route        GET /search/plaintiff-attorney
+//@desc         Get cases by plaintiff attorney
+//@access       Private
 router.get("/search/plaintiff-attorney", (req, res) => {
   let { pAttyLName } = req.query;
   db.PlaintiffAttorney.findOne({
     where: {
       LName: pAttyLName,
     },
-    // include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
   })
     .then((results) => {
       db.Case.findOne({
         where: {
           PlaintiffAttorneyId: results.dataValues.id,
         },
-        include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        include: [
+          db.Type,
+          db.Division,
+          db.Plaintiff,
+          db.PlaintiffAttorney,
+          db.Defendant,
+          db.DefenseAttorney,
+        ],
       })
         .then(async (caseResults) => {
           const cases = [caseResults];
@@ -139,7 +152,7 @@ router.get("/search/plaintiff-attorney", (req, res) => {
           const divisions = await db.Division.findAll({});
           res.render("docketmaster", {
             divisions,
-            cases
+            cases,
           });
         })
         .catch((err) => {
@@ -151,16 +164,25 @@ router.get("/search/plaintiff-attorney", (req, res) => {
     });
 });
 
+//@route        GET /search/defendant
+//@desc         Get cases by defendant
+//@access       Private
 router.get("/search/defendant", (req, res) => {
   let { dLName } = req.query;
   db.Defendant.findOne({
     where: { LName: dLName },
-    // include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
   })
     .then((results) => {
       db.Case.findOne({
         where: { DefendantId: results.dataValues.id },
-        include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        include: [
+          db.Type,
+          db.Division,
+          db.Plaintiff,
+          db.PlaintiffAttorney,
+          db.Defendant,
+          db.DefenseAttorney,
+        ],
       })
         .then(async (caseResults) => {
           const cases = [caseResults];
@@ -168,7 +190,7 @@ router.get("/search/defendant", (req, res) => {
           const divisions = await db.Division.findAll({});
           res.render("docketmaster", {
             divisions,
-            cases
+            cases,
           });
         })
         .catch((err) => {
@@ -180,18 +202,27 @@ router.get("/search/defendant", (req, res) => {
     });
 });
 
+//@route        GET /search/defense-attorney
+//@desc         Get cases by defense attorney
+//@access       Private
 router.get("/search/defense-attorney", (req, res) => {
   let { dAttyLName } = req.query;
   db.DefenseAttorney.findOne({
     where: { def_attorneyLName: dAttyLName },
-    // include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney],
   })
     .then((results) => {
       db.Case.findAll({
         where: {
           DefenseAttorneyId: results.dataValues.id,
         },
-        include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        include: [
+          db.Type,
+          db.Division,
+          db.Plaintiff,
+          db.PlaintiffAttorney,
+          db.Defendant,
+          db.DefenseAttorney,
+        ],
       })
         .then(async (caseResults) => {
           const cases = [caseResults];
@@ -199,7 +230,7 @@ router.get("/search/defense-attorney", (req, res) => {
           const divisions = await db.Division.findAll({});
           res.render("docketmaster", {
             divisions,
-            cases
+            cases,
           });
         })
         .catch((err) => {
@@ -211,6 +242,9 @@ router.get("/search/defense-attorney", (req, res) => {
     });
 });
 
+//@route        GET /search/division
+//@desc         Get cases by division
+//@access       Private
 router.get("/search/division", (req, res) => {
   let { divisionName } = req.query;
   console.log(req.query);
@@ -225,14 +259,21 @@ router.get("/search/division", (req, res) => {
         where: {
           DivisionId: results.dataValues.id,
         },
-        include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+        include: [
+          db.Type,
+          db.Division,
+          db.Plaintiff,
+          db.PlaintiffAttorney,
+          db.Defendant,
+          db.DefenseAttorney,
+        ],
       })
         .then(async (cases) => {
           console.log(cases);
           const divisions = await db.Division.findAll({});
           res.render("docketmaster", {
             divisions,
-            cases
+            cases,
           });
         })
         .catch((err) => {
@@ -246,18 +287,16 @@ router.get("/search/division", (req, res) => {
 
 //@route        POST /api/cases
 //@desc         Create new case
-//@access       Public
+//@access       Private
 router.post("/api/cases", (req, res) => {
-    console.log("-------->in the post for cases");
-    console.log(req.body);
-    db.Case.create(req.body).then((newCase) => {
-        res.status(201).json(newCase);
-    });
+  db.Case.create(req.body).then((newCase) => {
+    res.status(201).json(newCase);
+  });
 });
 
 //@route        PUT /api/cases/:id
 //@desc         Update case
-//@access       Public
+//@access       Private
 router.put("api/cases/:id", (req, res) => {
   const { id } = req.params;
   db.Case.update({
@@ -271,7 +310,7 @@ router.put("api/cases/:id", (req, res) => {
 
 //@route        DELETE /api/cases/:id
 //@desc         Delete case
-//@access       Public
+//@access       Private
 router.delete("api/cases/:id", (req, res) => {
   const { id } = req.params;
   db.Case.destroy({

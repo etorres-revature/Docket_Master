@@ -1,3 +1,4 @@
+//Sequelize boilerplate to make the models function appropriately
 "use strict";
 var fs = require("fs");
 var path = require("path");
