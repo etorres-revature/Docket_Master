@@ -247,10 +247,12 @@ router.get("/search/division", (req, res) => {
 //@route        POST /api/cases
 //@desc         Create new case
 //@access       Public
-router.post("api/cases", (req, res) => {
-  db.Case.create(req.body).then((newCase) => {
-    res.status(201).json(newCase);
-  });
+router.post("/api/cases", (req, res) => {
+    console.log("-------->in the post for cases");
+    console.log(req.body);
+    db.Case.create(req.body).then((newCase) => {
+        res.status(201).json(newCase);
+    });
 });
 
 //@route        PUT /api/cases/:id
