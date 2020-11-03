@@ -1,5 +1,6 @@
 body {
-  font-size: .875rem;
+  font-size: 0.875rem;
+  background: url("../img/justitia-2597016_1280.jpg") no-repeat fixed center;
 }
 
 .feather {
@@ -19,7 +20,7 @@ body {
   left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 767.98px) {
@@ -32,7 +33,7 @@ body {
   position: relative;
   top: 0;
   height: calc(100vh - 48px);
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
@@ -64,7 +65,7 @@ body {
 }
 
 .sidebar-heading {
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
 }
 
@@ -78,39 +79,153 @@ body {
  */
 
 .navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
 }
 
 .navbar .navbar-toggler {
-  top: .25rem;
+  top: 0.25rem;
   right: 1rem;
 }
 
 .navbar .form-control {
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   border-width: 0;
   border-radius: 0;
 }
 
 .form-control-dark {
   color: #fff;
-  background-color: rgba(255, 255, 255, .1);
-  border-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .form-control-dark:focus {
   border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 
 a#sendSMS:hover {
-text-decoration: none;
+  text-decoration: none;
 }
 
 a#sendSMS {
   color: #fff;
+}
+
+/* docketmaster */
+
+h6.docketmaster {
+  color: darkslategray;
+}
+
+small.subtext {
+  color: orangered;
+}
+
+div.form {
+  background-color: palegoldenrod;
+}
+
+/* results table */
+div.results {
+  background-color: palegoldenrod;
+}
+
+/* view all cases */
+
+div.all-cases {
+  background-color: peachpuff;
+}
+
+/* new case form */
+
+form.new-case {
+  background-color: #fff;
+}
+
+div.docketmaster {
+  color: darkslategray;
+}
+
+/* admin */
+/* POST - create */
+
+form#create-defendant {
+  background-color: palegreen;
+}
+
+form#create-plaintiff {
+  background-color: palevioletred;
+}
+
+form#create-pAtty {
+  background-color: aqua;
+}
+
+form#create-dAtty {
+  background-color: skyblue;
+}
+
+form#create-division {
+  background-color: goldenrod;
+}
+
+form#create-type {
+  background-color: violet;
+}
+
+/* GET - view */
+
+div.h3 {
+  font-weight: bold;
+}
+
+div.card-header.plaintiff {
+  background-color: tomato;
+}
+
+div.card-header.defendant {
+  background-color: teal;
+}
+
+div.card-header.pAttys {
+  background-color: green;
+}
+
+div.card-header.dAttys {
+  background-color: purple;
+}
+
+div.card-header.divisions {
+  background-color: blue;
+}
+
+div.card-header.types {
+  background-color: saddlebrown;
+}
+
+/* about Docket Master */
+div.story {
+  background-color: #fff;
+}
+
+h1.about-title {
+  color: grey;
+}
+
+p.text-justify {
+  color: maroon;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+}
+
+img.about {
+  height: 250px;
+  width: 286px;
 }

@@ -1,92 +1,96 @@
-                <form>
-                    <div class="form-group">
-                        <label for="update-case-number" class="col-form-label">Case Number</label>
-                        <input type="text" class="form-control" id="update-case-number">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="update-plaintiff-name" class="col-form-label">Plaintiff Name</label>
-                        <div class="row">
-                            <div class="col">
-                                <input list="plaintiff-match-list" class="form-control" id="plaintiff-name">
-                                <small class="form-text text-muted">Full Name</small>
-                                <datalist id="plaintiff-match-list"></datalist>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="update-pAttorney-name" class="col-form-label">Plaintiff Attorney
-                            Name</label>
-                        <div class="row">
-                            <div class="col">
-                                <input list="pAttorney-match-list" class="form-control" id="pAttorney-name">
-                                <small class="form-text text-muted">Full Name</small>
-                                 <datalist id="pAttorney-match-list"></datalist>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="update-defendant-name" class="col-form-label">Defendant Name</label>
-                        <div class="row">
-                           
-                             <div class="col">
-                                <input list="defendant-match-list" class="form-control" id="defendant-name">
-                                <small class="form-text text-muted">Full Name</small>
-                                <datalist id="defendant-match-list"></datalist>
-                            </div>
-            
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="update-dAttorney-name" class="col-form-label">Defendant Attorney
-                            Name</label>
-                        <div class="row">
-                            <div class="col">
-                                <input list="dAttorney-match-list" class="form-control" id="dAttorney-name">
-                                <small class="form-text text-muted">Full Name</small>
-                                 <datalist id="dAttorney-match-list"></datalist>
-                            </div>
-                           
-                        </div>
-                    </div>
+<div class="container">
+    <form class="new-case p-3 mt-5">
+        <div class="form-group">
+            <label for="update-case-number" class="col-form-label docketmaster">Case Number</label>
+            <input type="text" class="form-control" id="update-case-number">
+        </div>
 
-                    <div class="form-group">
-                        <label for="case-type" class="col-form-label">Type</label>
-                        <div class="row">
-                            <div class="col">
-                                <input list="case-type-match-list" class="form-control" id="case-type">
-                                <small class="form-text text-muted">Case Type</small>
-                                 <datalist id="case-type-match-list"></datalist>
-                            </div>
-                        </div>
-                    </div>
+        <div class="form-group">
+            <label for="update-plaintiff-name" class="col-form-label docketmaster">Plaintiff Name</label>
+            <div class="row">
+                <div class="col">
+                    <input list="plaintiff-match-list" class="form-control" id="plaintiff-name">
+                    <small class="form-text subtext">Full Name</small>
+                    <datalist id="plaintiff-match-list"></datalist>
+                </div>
 
-                    <div class="form-group">
-                        <label for="division-name" class="col-form-label">Divison</label>
-                        <div class="row">
-                            <div class="col">
-                                <input list="division-match-list" class="form-control" id="divison-name">
-                                <small class="form-text text-muted">Division Name</small>
-                                 <datalist id="division-match-list"></datalist>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="update-pAttorney-name" class="col-form-label docketmaster">Plaintiff Attorney
+                Name</label>
+            <div class="row">
+                <div class="col">
+                    <input list="pAttorney-match-list" class="form-control" id="pAttorney-name">
+                    <small class="form-text subtext">Full Name</small>
+                    <datalist id="pAttorney-match-list"></datalist>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="update-defendant-name" class="col-form-label docketmaster">Defendant Name</label>
+            <div class="row">
+
+                <div class="col">
+                    <input list="defendant-match-list" class="form-control" id="defendant-name">
+                    <small class="form-text subtext">Full Name</small>
+                    <datalist id="defendant-match-list"></datalist>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="update-dAttorney-name" class="col-form-label docketmaster">Defendant Attorney
+                Name</label>
+            <div class="row">
+                <div class="col">
+                    <input list="dAttorney-match-list" class="form-control" id="dAttorney-name">
+                    <small class="form-text subtext">Full Name</small>
+                    <datalist id="dAttorney-match-list"></datalist>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="case-type" class="col-form-label docketmaster">Type</label>
+            <div class="row">
+                <div class="col">
+                    <input list="case-type-match-list" class="form-control" id="case-type">
+                    <small class="form-text subtext">Case Type</small>
+                    <datalist id="case-type-match-list"></datalist>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="division-name" class="col-form-label docketmaster">Divison</label>
+            <div class="row">
+                <div class="col">
+                    <input list="division-match-list" class="form-control" id="divison-name">
+                    <small class="form-text subtext">Division Name</small>
+                    <datalist id="division-match-list"></datalist>
+                </div>
+            </div>
+        </div>
 
 
-                    <div class="form-group">
-                        <label for="update-amount-in-controversy" class="col-form-label">Amount in
-                            Controversy</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="text" class="form-control" id="update-amount-in-controversy">
-                            <div class="input-group-append">
-                                <span class="input-group-text">.00</span>
-                            </div>
-                        </div>
-                    </div>
-                     <button type="submit" class="btn btn-primary" id="add-new-case">Submit</button>
-                </form>
+        <div class="form-group">
+            <label for="update-amount-in-controversy" class="col-form-label docketmaster">Amount in
+                Controversy</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input type="text" class="form-control" id="update-amount-in-controversy">
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-primary" id="add-new-case">Submit</button>
+            </div>
+    </form>
+</div>

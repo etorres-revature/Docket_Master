@@ -4,23 +4,22 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
     <section id="dashboard-header">
-        <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Docket Dashboard</h1>
+        <div class="text-center pt-3 pb-2 mb-3 border-bottom border-dark">
+            <h1 class="docket-title">Docket Dashboard</h1>
         </div>
     </section>
 
     <section id="dashboard-search-filter">
-        <div class="container-fluid border pt-1">
+        <div class="container-fluid border pt-1 form w-50">
             <form class="form" action="/search/casenumber">
                 <label for="search-by-case-number">
-                    <h6>Search By Case Number</h6>
+                    <h6 class="docketmaster">Search By Case Number</h6>
                 </label>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" id="search-case-number" aria-label="Search"
                             name="caseNumber">
-                        <small class="form-text text-muted">Case Number</small>
+                        <small class="form-text subtext">Case Number</small>
                     </div>
                     <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
@@ -29,15 +28,15 @@
             </form>
         </div>
         <br>
-        <div class="container-fluid border pt-1">
+        <div class="container-fluid border pt-1 form w-50">
             <form class="form" action="/search/plaintiff">
                 <label for="search-by-plaintiff">
-                    <h6>Search By Plaintiff</h6>
+                    <h6 class="docketmaster">Search By Plaintiff</h6>
                 </label>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" id="search-plaintiff" aria-label="Search" name="pLName">
-                        <small class="form-text text-muted">Last Name</small>
+                        <small class="form-text subtext">Last Name</small>
                     </div>
                     <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
@@ -46,16 +45,16 @@
             </form>
         </div>
         <br>
-        <div class="container-fluid border pt-1">
+        <div class="container-fluid border pt-1 form w-50">
             <form class="form" action="/search/plaintiff-attorney">
                 <label for="search-by-plaintiff-attorney">
-                    <h6>Search By Plaintiff Attorney</h6>
+                    <h6 class="docketmaster">Search By Plaintiff Attorney</h6>
                 </label>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" id="search-plaintiff-attorney" aria-label="Search"
                             name="pAttyLName">
-                        <small class="form-text text-muted">Last Name</small>
+                        <small class="form-text subtext">Last Name</small>
                     </div>
                     <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
@@ -64,15 +63,15 @@
             </form>
         </div>
         <br>
-        <div class="container-fluid border pt-1">
+        <div class="container-fluid border pt-1 form w-50">
             <form class="form" action="/search/defendant">
                 <label for="search-by-defendant">
-                    <h6>Search By Defendant</h6>
+                    <h6 class="docketmaster">Search By Defendant</h6>
                 </label>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" id="search-defendant" aria-label="Search" name="dLName">
-                        <small class="form-text text-muted">Last Name</small>
+                        <small class="form-text subtext">Last Name</small>
                     </div>
                     <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
@@ -81,16 +80,16 @@
             </form>
         </div>
         <br>
-        <div class="container-fluid border pt-1">
+        <div class="container-fluid border pt-1 form w-50">
             <form class="form" action="/search/defense-attorney">
                 <label for="search-by-defense-attorney">
-                    <h6>Search By Defense Attorney</h6>
+                    <h6 class="docketmaster">Search By Defense Attorney</h6>
                 </label>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" id="search-defense-attorney" aria-label="Search"
                             name="dAttyLName">
-                        <small class="form-text text-muted">Last Name</small>
+                        <small class="form-text subtext">Last Name</small>
                     </div>
                     <div class="col pt-1">
                         <input class="btn-primary" type="submit" value="Search">
@@ -99,10 +98,10 @@
             </form>
         </div>
         <br>
-        <div class="container-fluid border pt-1 pb-3">
+        <div class="container-fluid border pt-1 pb-3 view-cases form w-50">
             <form class="form" action="/search/division">
                 <label for="filter-by-division">
-                    <h6>Filter By Division</h6>
+                    <h6 class="docketmaster">Filter By Division</h6>
                 </label>
                 <div class="row">
                     <div class="col">
