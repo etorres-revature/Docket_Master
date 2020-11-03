@@ -105,4 +105,8 @@ module.exports = function(app) {
             types,
         });
     });
+
+    app.get("/docketmaster/contact", (req, res) => {
+        res.render("contactPage.handlebars");
+    });
 };
