@@ -18,7 +18,8 @@ module.exports = function(app) {
         // res.sendFile(path.join(__dirname, "../public/signup.html"));
 
         // Insert route to handlebars instead of /public/signup.html
-        res.render("signup.handlebars");
+        // res.render("signup.handlebars");
+        res.redirect("/docketmaster");
     });
 
     app.get("/login", function(req, res) {
@@ -37,7 +38,7 @@ module.exports = function(app) {
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     // Note that we are using async / await to populate data (divisions and cases) on the main docket master page 
 
-    app.get("/docketmaster", isAuthenticated, async (req, res) => {
+    app.get("/docketmaster", isAuthenticated, async(req, res) => {
         const divisions = await db.Division.findAll({});
         const cases = await db.Case.findAll({
             include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
@@ -48,57 +49,57 @@ module.exports = function(app) {
         });
     });
 
-  app.get("/docketmaster/add", function (req, res) {
-    res.render("add.handlebars");
-  });
-
-  app.get("/docketmaster/admin/create", (req, res) => {
-    res.render("adminCreate.handlebars");
-  });
-
-  app.get("/docketmaster/view", async (req, res) => {
-    const cases = await db.Case.findAll({
-      include: [
-        db.Type,
-        db.Division,
-        db.Plaintiff,
-        db.PlaintiffAttorney,
-        db.Defendant,
-        db.DefenseAttorney,
-      ],
+    app.get("/docketmaster/add", function(req, res) {
+        res.render("add.handlebars");
     });
 
-    res.render("view.handlebars", { cases });
-  });
-
-  app.get("/docketmaster/add", async (req, res) => {
-    const cases = await db.Case.findAll({
-      include: [
-        db.Type,
-        db.Division,
-        db.Plaintiff,
-        db.PlaintiffAttorney,
-        db.Defendant,
-        db.DefenseAttorney,
-      ],
+    app.get("/docketmaster/admin/create", (req, res) => {
+        res.render("adminCreate.handlebars");
     });
-    res.render("add.handlebars", { cases });
-  });
 
-  app.get("/docketmaster/admin/view", async (req, res) => {
-    const plaintiffs = await db.Plaintiff.findAll({});
-    const defendants = await db.Defendant.findAll({});
-    const pAttys = await db.PlaintiffAttorney.findAll({});
-    const dAttys = await db.DefenseAttorney.findAll({});
-    const divisions = await db.Division.findAll({});
-    const types = await db.Type.findAll({});
-    res.render("adminView.handlebars", {
-      plaintiffs,
-      defendants,
-      pAttys,
-      dAttys,
-      divisions,
-      types,
+    app.get("/docketmaster/view", async(req, res) => {
+        const cases = await db.Case.findAll({
+            include: [
+                db.Type,
+                db.Division,
+                db.Plaintiff,
+                db.PlaintiffAttorney,
+                db.Defendant,
+                db.DefenseAttorney,
+            ],
+        });
+
+        res.render("view.handlebars", { cases });
     });
-  });
+
+    app.get("/docketmaster/add", async(req, res) => {
+        const cases = await db.Case.findAll({
+            include: [
+                db.Type,
+                db.Division,
+                db.Plaintiff,
+                db.PlaintiffAttorney,
+                db.Defendant,
+                db.DefenseAttorney,
+            ],
+        });
+        res.render("add.handlebars", { cases });
+    });
+
+    app.get("/docketmaster/admin/view", async(req, res) => {
+        const plaintiffs = await db.Plaintiff.findAll({});
+        const defendants = await db.Defendant.findAll({});
+        const pAttys = await db.PlaintiffAttorney.findAll({});
+        const dAttys = await db.DefenseAttorney.findAll({});
+        const divisions = await db.Division.findAll({});
+        const types = await db.Type.findAll({});
+        res.render("adminView.handlebars", {
+            plaintiffs,
+            defendants,
+            pAttys,
+            dAttys,
+            divisions,
+            types,
+        });
+    });
 };

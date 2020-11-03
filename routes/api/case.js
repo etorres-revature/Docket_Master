@@ -64,6 +64,22 @@ router.get("/api/cases/:id", (req, res) => {
 // Add search routing to the get case routers
 
 router.get("/search/casenumber", (req, res) => {
+<<<<<<< HEAD
+    let { caseNumber } = req.query;
+    db.Case.findAll({
+            where: {
+                caseNumber
+            }
+        })
+        .then(cases => {
+            console.log(cases);
+            res.render("docketmaster", { cases })
+        })
+        .catch(err => {
+            res.render("error", { error: err })
+            console.log(req.query);
+        });
+=======
   let { caseNumber } = req.query;
   db.Case.findAll({
     where: {
@@ -78,6 +94,7 @@ router.get("/search/casenumber", (req, res) => {
       res.render("error", { error: err });
       console.log(req.query);
     });
+>>>>>>> c857fd14d7c142e2db5d07608f5f2f1ae2cac0c1
 });
 
 router.get("/search/plaintiff", (req, res) => {
@@ -225,10 +242,19 @@ router.get("/search/division", (req, res) => {
 //@route        POST /api/cases
 //@desc         Create new case
 //@access       Public
+<<<<<<< HEAD
+router.post("/api/cases", (req, res) => {
+    console.log("-------->in the post for cases");
+    console.log(req.body);
+    db.Case.create(req.body).then((newCase) => {
+        res.status(201).json(newCase);
+    });
+=======
 router.post("api/cases", (req, res) => {
   db.Case.create(req.body).then((newCase) => {
     res.status(201).json(newCase);
   });
+>>>>>>> c857fd14d7c142e2db5d07608f5f2f1ae2cac0c1
 });
 
 //@route        PUT /api/cases/:id
