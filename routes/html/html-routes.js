@@ -38,7 +38,7 @@ module.exports = function(app) {
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     // Note that we are using async / await to populate data (divisions and cases) on the main docket master page 
 
-    app.get("/docketmaster", async(req, res) => {
+    app.get("/docketmaster", isAuthenticated, async(req, res) => {
         const divisions = await db.Division.findAll({});
         const cases = await db.Case.findAll({
             include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
@@ -49,20 +49,24 @@ module.exports = function(app) {
         });
     });
 
-
-    // app.get("/docketmaster/add", function(req, res) {
-    //     res.render("add.handlebars");
-    // });
-
+    app.get("/docketmaster/add", function(req, res) {
+        res.render("add.handlebars");
+    });
 
     app.get("/docketmaster/admin/create", (req, res) => {
         res.render("adminCreate.handlebars");
     });
 
     app.get("/docketmaster/view", async(req, res) => {
-
         const cases = await db.Case.findAll({
-            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+            include: [
+                db.Type,
+                db.Division,
+                db.Plaintiff,
+                db.PlaintiffAttorney,
+                db.Defendant,
+                db.DefenseAttorney,
+            ],
         });
 
         res.render("view.handlebars", { cases });
@@ -70,10 +74,17 @@ module.exports = function(app) {
 
     app.get("/docketmaster/add", async(req, res) => {
         const cases = await db.Case.findAll({
-            include: [db.Type, db.Division, db.Plaintiff, db.PlaintiffAttorney, db.Defendant, db.DefenseAttorney]
+            include: [
+                db.Type,
+                db.Division,
+                db.Plaintiff,
+                db.PlaintiffAttorney,
+                db.Defendant,
+                db.DefenseAttorney,
+            ],
         });
-        res.render("create-case.handlebars", { cases });
-    })
+        res.render("add.handlebars", { cases });
+    });
 
     app.get("/docketmaster/admin/view", async(req, res) => {
         const plaintiffs = await db.Plaintiff.findAll({});
