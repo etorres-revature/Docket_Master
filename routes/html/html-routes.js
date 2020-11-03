@@ -101,24 +101,35 @@ module.exports = function (app) {
     res.render("add.handlebars", { cases });
   });
 
-  app.get("/docketmaster/admin/view", async (req, res) => {
-    const plaintiffs = await db.Plaintiff.findAll({});
-    const defendants = await db.Defendant.findAll({});
-    const pAttys = await db.PlaintiffAttorney.findAll({});
-    const dAttys = await db.DefenseAttorney.findAll({});
-    const divisions = await db.Division.findAll({});
-    const types = await db.Type.findAll({});
-    res.render("adminView.handlebars", {
-      plaintiffs,
-      defendants,
-      pAttys,
-      dAttys,
-      divisions,
-      types,
-    });
-  });
+ 
 
-  app.get("/docketmaster/about", (req, res) => {
+
+ 
+
+    app.get("/docketmaster/admin/view", async(req, res) => {
+        const plaintiffs = await db.Plaintiff.findAll({});
+        const defendants = await db.Defendant.findAll({});
+        const pAttys = await db.PlaintiffAttorney.findAll({});
+        const dAttys = await db.DefenseAttorney.findAll({});
+        const divisions = await db.Division.findAll({});
+        const types = await db.Type.findAll({});
+        res.render("adminView.handlebars", {
+            plaintiffs,
+            defendants,
+            pAttys,
+            dAttys,
+            divisions,
+            types,
+        });
+    });
+
+   app.get("/docketmaster/about", (req, res) => {
     res.render("aboutDocketMaster.handlebars");
   });
 };
+
+    app.get("/docketmaster/contact", (req, res) => {
+        res.render("contactPage.handlebars");
+    });
+};
+
