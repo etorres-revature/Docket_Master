@@ -1,0 +1,77 @@
+<div class="container mt-4 col-6">
+    <div class="card mb-3">
+        <div class="card-header plaintiff h3 text-center">
+            Plaintiffs
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each plaintiffs}}
+                {{> tableViews/plaintiff-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header defendant h3 text-center">
+            Defendants
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each defendants}}
+                {{> tableViews/defendant-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header pAttys h3 text-center">
+            Plaintiff Attorneys
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each pAttys}}
+                {{> tableViews/pAtty-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header dAttys h3 text-center">
+            Defendant Attorneys
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each dAttys}}
+                {{> tableViews/dAtty-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header divisions h3 text-center">
+            Divisions
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each divisions}}
+                {{> tableViews/division-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header types h3 text-center">
+            Types
+        </div>
+        <div class="card-body">
+            <ol>
+                {{#each types}}
+                {{> tableViews/type-block}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</div>
