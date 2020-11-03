@@ -68,6 +68,11 @@ body {
   text-transform: uppercase;
 }
 
+.sidebar-pushdown {
+  position: absolute;
+  bottom: 0;
+}
+
 /*
  * Navbar
  */
