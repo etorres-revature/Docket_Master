@@ -1,0 +1,73 @@
+{{> docketmaster-navbar}}
+{{> docketmaster-sidebar}}
+
+
+<div class="container mt-5 col-8">
+    <!-- contact form reproduced from https://bootstraptemple.com/p/how-to-build-a-working-bootstrap-contact-form -->
+    <div class="card p-3">
+        <h1>CONTACT</h1>
+        </hr>
+        <form id="contact-form" method="post">
+            <div class="controls">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="form_firstname">First name:</label>
+                            <input id="form_firstname" type="text" name="name" class="form-control"
+                                placeholder="Enter first name here" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="form_lastname">Last name:</label>
+                            <input id="form_lastname" type="text" name="surname" class="form-control"
+                                placeholder="Enter last name here" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="form_email">E-mail address:</label>
+                            <input id="form_email" type="email" name="email" class="form-control"
+                                placeholder="Enter e-mail address" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="form_telephone">Telephone:</label>
+                            <input id="form_telephone" type="tel" name="telephone" class="form-control"
+                                placeholder="Enter phone number" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="form group">
+                            <label for="form_message">Enter a brief message: </label>
+                            <textarea id="form_message" name="message" class="form-control" rows="6"
+                                required="required"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100" style="height: 8px;"></div>
+                <!-- </br> -->
+                <!-- </br> -->
+                <div class="row">
+                    <div class="col-sm-10">
+                        <button type="button" class="btn btn-danger">Submit</button>
+                    </div>
+                </div>
+                <!-- </br> -->
+                <div class="w-100" style="height: 12px;"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <p class="text-muted">
+                            <strong>All fields required to submit contact form.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

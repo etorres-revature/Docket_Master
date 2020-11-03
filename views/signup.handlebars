@@ -1,10 +1,12 @@
 {{> signup-login-navbar}}
 
-<div class="container">
+
+<div class="container mt-5">
     <div class="row p-5 m-5">
-        <div class="col-md-6 col-md-offset-6">
+        <div class="col-6"></div>
+        <div class="col-6 border border-danger mt-5 p-4">
             <h2>Sign Up Form</h2>
-            <form class="signup" action="/api/signup" method="POST">
+            <form class="signup">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email-input" placeholder="Email">
@@ -17,10 +19,13 @@
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span> <span class="msg"></span>
                 </div>
-                <button type="submit" class="btn btn-default">Sign Up</button>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-outline-info">Sign Up</button>
+                </div>
             </form>
             <br />
-            <p>Or log in <a href="/login">here</a></p>
+            <p>Or, log in <a href="/login">here</a></p>
+            <br />
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <section id="dashboard-results-table">
 
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-3 mt-4 results">
         <h2>Cases</h2>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -9,7 +9,8 @@
                         <th scope="col">Case Number</th>
                         <th scope="col">Caption</th>
                         <th scope="col">Amount in Controversy</th>
-                        <th scope="col"></th>
+                        <th scope="col">Division</th>
+                        <th scope="col">Judge</th>
                     </tr>
                 </thead>
                 {{#each cases}}
@@ -17,17 +18,19 @@
                     <tr id="caseRow">
                         <th scope="row" id="case-number">{{caseNumber}}</th>
                         <td id="caption"> {{Plaintiff.LName}} vs. {{Defendant.LName}}</td>
-                        <td id="amount-in-controversy">{{amntCntrvsy}}</td>
-                       
+                        <td id="amount-in-controversy">${{amntCntrvsy}}.00</td>
+                        <td id="division">{{Division.division}}</td>
+                        <td id="judge">Judge {{Division.judgeFName}} {{Division.judgeLName}}</td>
+
                         {{!-- <td id="plaintiff-cell">
                             {{Plaintiff.LName}}, {{Plaintiff.FName}}</td>
                             <td id="defeadant-cell">
                             {{Defendant.LName}}, {{Defendant.FName}}</td> --}}
-                        <td class="ml-5" id="update-field" data-id="{{id}}">
+                        {{!-- <td class="ml-5" id="update-field" data-id="{{id}}">
                             <button type="button" class="btn btn-primary btn-sm" id="update-btn" data-toggle="modal"
                                 data-target="#update-modal">
                                 Update Case</button>
-                        </td>
+                        </td> --}}
                     </tr>
                 </tbody>
                 {{/each}}
