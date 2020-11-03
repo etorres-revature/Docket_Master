@@ -23,13 +23,13 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
-// Creating express app and configuring middleware needed for authentication
+// Creating express app and configuring middleware needed for parsing information from the body or displaying static information
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-//routes to use controllers
+//routes to use controllers - api to backend
 app.use(caseController);
 app.use(defendant);
 app.use(defAtty);
@@ -54,10 +54,11 @@ app.set("view engine", "handlebars");
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+//using passport library
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring our passport routes
+// Requiring our passport routes for authentication
 require("./routes/html/html-routes.js")(app);
 require("./routes/api/api-routes.js")(app);
 

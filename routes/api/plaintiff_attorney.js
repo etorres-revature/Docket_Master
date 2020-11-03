@@ -5,7 +5,7 @@ const db = require("../../models");
 
 //@route        GET /api/plaintiff_attorneys
 //@desc         Get all plaintiff attorneys
-//@access       Public
+//@access       Private
 router.get("/api/plaintiff_attorneys", (req, res) => {
   db.PlaintiffAttorney.findAll({}).then((plaintAttys) => {
     res.json(plaintAttys);
@@ -14,7 +14,7 @@ router.get("/api/plaintiff_attorneys", (req, res) => {
 
 //@route        GET /api/plaintiff_attorney/:id
 //@desc         Get plaintiff attorney
-//@access       Public
+//@access       Private
 router.get("/api/plaintiff_attorneys/:id", (req, res) => {
   const { id } = req.params;
   db.PlaintiffAttorney.findOne({
@@ -28,7 +28,7 @@ router.get("/api/plaintiff_attorneys/:id", (req, res) => {
 
 //@route        POST /api/plaintiff_attorney
 //@desc         Create new plaintiff attorney
-//@access       Public
+//@access       Private
 router.post("/api/plaintiff_attorneys", (req, res) => {
   db.PlaintiffAttorney.create(req.body).then((newPlaintAtty) => {
     res.status(201).json(newPlaintAtty);
@@ -37,7 +37,7 @@ router.post("/api/plaintiff_attorneys", (req, res) => {
 
 //@route        PUT /api/plaintiff_attorney/:id
 //@desc         Update plaintiff attorney
-//@access       Public
+//@access       Private
 router.put("/api/plaintiff_attorneys/:id", (req, res) => {
   const { id } = req.params;
   db.PlaintiffAttorney.update({
@@ -51,7 +51,7 @@ router.put("/api/plaintiff_attorneys/:id", (req, res) => {
 
 //@route        DELETE /api/plaintiff_attorney/:id
 //@desc         Delete plaintiff attorney
-//@access       Public
+//@access       Private
 router.delete("/api/plaintiff_attorneys/:id", (req, res) => {
   const { id } = req.params;
   db.PlaintiffAttorney.destroy({
