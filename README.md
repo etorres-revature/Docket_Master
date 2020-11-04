@@ -28,37 +28,37 @@ If you are interested in using Docket Master, the [Docket Master repo](https://g
 
 ## Usage
 
-[Docket Master is deployed](https://pure-atoll-36836.herokuapp.com/), and users can try out its functionality there.
+![Docket Master is deployed](https://pure-atoll-36836.herokuapp.com/), and users can try out its functionality there.
 
 ### Docket Master Features
 
 1. **AUTHENTICATION** of users. Users must sign up to use Docket Master and in later sessions use the information from sign up to log in to Docket Master.
 
-[DOCKET MASTER AUTHENTICATION](./public/assets/img/readme/docketmaster-authentication.png)
+![DOCKET MASTER AUTHENTICATION](./public/assets/img/readme/docketmaster-authentication.png)
 
 2. **DASHBOARD** cases. The Docket Master Dashboard is designed to give users the ability to search through cases with a multitude of search parameters.
 
-[DOCKET MASTER DASHBOARD](./public/assets/img/readme/docketmaster-authentication.png)
+![DOCKET MASTER DASHBOARD](./public/assets/img/readme/docketmaster-dashboard.png)
 
 3. **VIEW ALL** cases. Comprehensive list of cases with modal functionality to dig deeper into case details.
 
-[DOCKET MASTER VIEW ALL](./public/assets/img/readme/docketmaster-modal.png)
+![DOCKET MASTER VIEW ALL](./public/assets/img/readme/docketmaster-modal.png)
 
 4. **SEND SMS TEXT** to Docket Master user. When a case needs attention, Docket Master has SMS text capability to be in touch when your on the go.
 
-[DOCKET MASTER SMS TEXT](./public/assets/img/readme/docketmaster-sms-text.png)
+![DOCKET MASTER SMS TEXT](./public/assets/img/readme/docketmaster-sms-text.png)
 
 5. **CREATE CASE** form. Users can enter new cases via this form.
 
-[DOCKET MASTER CREATE CASE](./public/assets/img/readme/docketmaster-create-case.png)
+![DOCKET MASTER CREATE CASE](./public/assets/img/readme/docketmaster-create-case.png)
 
 6. **ADMIN VIEW TABLE**. Docket Master provides functionality to GET what is contained in each of the tables that supports the CASE table.
 
-[DOCKET MASTER ADMIN VIEW TABLE](./public/assets/img/readme/docketmaster-view-table.png)
+![DOCKET MASTER ADMIN VIEW TABLE](./public/assets/img/readme/docketmaster-view-table.png)
 
 7. **ADMIN CREATE TABLE ENTRY**. Docket Master provides functionality to POST a new entry into each of the tables that supports the CASE table.
 
-[DOCKET MASTER CREATE TABLE ENTRY](./public/assets/img/readme/docketmaster-new-table-entry.png)
+![DOCKET MASTER CREATE TABLE ENTRY](./public/assets/img/readme/docketmaster-new-table-entry.png)
 
 ## Guidelines for Contributing
 
@@ -135,7 +135,7 @@ _Docket Master_ was conceived, created, and coded by:
 |          :cat: Alize Hassan :cat:          |  :bulb: James Howard :bulb:   |
 | :green_heart: Eric D. Torres :green_heart: | :beer: Shane Schilling :beer: |
 
-[DOCKET MASTER ABOUT TEAM](./public/assets/img/readme/docketmaster-about.png)
+![DOCKET MASTER ABOUT TEAM](./public/assets/img/readme/docketmaster-about.png)
 
 Check out our GitHub profiles:
 
