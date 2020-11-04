@@ -28,7 +28,7 @@ If you are interested in using Docket Master, the [Docket Master repo](https://g
 
 ## Usage
 
-![Docket Master is deployed](https://pure-atoll-36836.herokuapp.com/), and users can try out its functionality there.
+[Docket Master is deployed](https://pure-atoll-36836.herokuapp.com/), and users can try out its functionality there.
 
 ### Docket Master Features
 
