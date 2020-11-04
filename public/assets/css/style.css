@@ -5,9 +5,9 @@ body {
 }
 
 .feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
 }
 
 /* Sidebar */
@@ -23,9 +23,9 @@ body {
 }
 
 @media (max-width: 767.98px) {
-    .sidebar {
-        top: 5rem;
-    }
+  .sidebar {
+    top: 5rem;
+  }
 }
 
 .sidebar-sticky {
@@ -38,29 +38,29 @@ body {
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
-    .sidebar-sticky {
-        position: -webkit-sticky;
-        position: sticky;
-    }
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
 }
 
 .sidebar .nav-link {
-    font-weight: 500;
-    color: #333;
+  font-weight: 500;
+  color: #333;
 }
 
 .sidebar .nav-link .feather {
-    margin-right: 4px;
-    color: #999;
+  margin-right: 4px;
+  color: #999;
 }
 
 .sidebar .nav-link.active {
-    color: #007bff;
+  color: #007bff;
 }
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
-    color: inherit;
+  color: inherit;
 }
 
 .sidebar-heading {
@@ -177,6 +177,10 @@ form#create-type {
 }
 
 /* GET - view */
+
+div.admin-view {
+  width: 43%;
+}
 
 div.h3 {
   font-weight: bold;
