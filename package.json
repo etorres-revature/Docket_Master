@@ -1,53 +1,53 @@
 {
-  "name": "docket_master",
-  "version": "1.0.0",
-  "description": "Full stack application for the creation, tracking, and updating of dockets in the court system.",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo 'Hello World!'",
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "watch": "nodemon server.js",
-    "sequelize": "sequelize-cli"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/etorres-revature/Docket_Master.git"
-  },
-  "keywords": [
-    "Node.js",
-    "Express",
-    "MySQL",
-    "Sequelize",
-    "full-stack",
-    "HTML",
-    "CSS",
-    "jQuery",
-    "JavaScript"
-  ],
-  "author": "Alize Hassan, James Howard, Shane Schilling, Eric D. Torres",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/etorres-revature/Docket_Master/issues"
-  },
-  "homepage": "https://github.com/etorres-revature/Docket_Master#readme",
-  "dependencies": {
-    "@handlebars/allow-prototype-access": "^1.0.3",
-    "bcryptjs": "2.4.3",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.16.1",
-    "faker": "^5.1.0",
-    "jest": "^26.6.1",
-    "mysql2": "^2.2.5",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0",
-    "twilio": "^3.50.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  }
+    "name": "docket_master",
+    "version": "1.0.0",
+    "description": "Full stack application for the creation, tracking, and updating of dockets in the court system.",
+    "main": "server.js",
+    "scripts": {
+        "test": "eslint --quiet",
+        "start": "node server.js",
+        "dev": "nodemon server.js",
+        "watch": "nodemon server.js",
+        "sequelize": "sequelize-cli"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/etorres-revature/Docket_Master.git"
+    },
+    "keywords": [
+        "Node.js",
+        "Express",
+        "MySQL",
+        "Sequelize",
+        "full-stack",
+        "HTML",
+        "CSS",
+        "jQuery",
+        "JavaScript"
+    ],
+    "author": "Alize Hassan, James Howard, Shane Schilling, Eric D. Torres",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/etorres-revature/Docket_Master/issues"
+    },
+    "homepage": "https://github.com/etorres-revature/Docket_Master#readme",
+    "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.3",
+        "bcryptjs": "2.4.3",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "express-session": "^1.16.1",
+        "faker": "^5.1.0",
+        "jest": "^26.6.1",
+        "mysql2": "^2.2.5",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "sequelize": "^6.3.5",
+        "sequelize-cli": "^6.2.0",
+        "twilio": "^3.50.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
 }
