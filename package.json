@@ -8,7 +8,9 @@
         "start": "node server.js",
         "dev": "nodemon server.js",
         "watch": "nodemon server.js",
-        "sequelize": "sequelize-cli"
+        "sequelize": "sequelize-cli",
+        "webpack": "webpack",
+        "prestart": "npm run webpack --watch"
     },
     "repository": {
         "type": "git",
@@ -34,6 +36,7 @@
     "dependencies": {
         "@handlebars/allow-prototype-access": "^1.0.3",
         "bcryptjs": "2.4.3",
+        "compression": "^1.7.4",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-handlebars": "^5.2.0",
@@ -45,7 +48,12 @@
         "passport-local": "^1.0.0",
         "sequelize": "^6.3.5",
         "sequelize-cli": "^6.2.0",
-        "twilio": "^3.50.0"
+        "twilio": "^3.50.0",
+        "webpack": "^5.6.0",
+        "webpack-cli": "^4.2.0",
+        "webpack-pwa-manifest": "^4.3.0",
+        "workbox": "0.0.0",
+        "workbox-webpack-plugin": "^5.1.4"
     },
     "devDependencies": {
         "eslint": "^7.12.1",
