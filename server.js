@@ -15,6 +15,7 @@ const plaintAty = require("./routes/api/plaintiff_attorney");
 const plaintiff = require("./routes/api/plaintiff");
 const twilio = require("./routes/api/twilio");
 const type = require("./routes/api/type");
+const compression = require("compression");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -24,9 +25,11 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for parsing information from the body or displaying static information
-var app = express();
+const app = express();
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(express.static("public"));
 
 //routes to use controllers - api to backend
@@ -59,8 +62,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our passport routes for authentication
-require("./routes/html/html-routes.js")(app);
 require("./routes/api/api-routes.js")(app);
+require("./routes/html/html-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 // Set force back to true to drop and recreate all tables on server startup
